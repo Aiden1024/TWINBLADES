@@ -1,0 +1,11 @@
+{
+    "contactUs":"聯繫我們",
+    "name":"姓名",
+    "email":"郵箱",
+    "message":"告訴我們,你的所想。",
+    "submit": "與吾共鳴",
+    "submitted":"提交成功！",
+    "enterName":"請輸入姓名",
+    "enterEmail":"請輸入電子郵箱",
+    "errSend":"發送失敗,請稍後再試。"
+}

@@ -1,0 +1,12 @@
+{
+    "contactUs":"Contact Us",
+    "name":"Name",
+    "email":"Email",
+    "message":"Let us know your thoughts.",
+    "submitted":"Submission successful!",
+    "submit": "Submit",
+    "enterName":"Please enter your name",
+    "enterEmail":"Please enter your email",
+    "errSend":"Failed to send, please try again later."
+    
+}

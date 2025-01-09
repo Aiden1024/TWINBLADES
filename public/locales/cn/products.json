@@ -1,0 +1,19 @@
+{
+    "products":"我们的产品",
+    
+    "product1": "M.V.S.E",
+    "subtitle1": "多模态视频搜索引擎",
+    "description1": "基于VisionMatrix专有的多模态系统的革命性视频搜索。使用文本、语音、图像等方式搜索人物、物品、动作和事件。与智能录制硬件无缝集成,提供连接式体验。",
+    "product2": "Speech Wizard",
+    "subtitle2": "智能语音转文字工具",
+    "description2": "解锁多语言交流的力量，尽在语音Speech Wizard",
+    "product3": "VMSearch",
+    "subtitle3": "终极搜索引擎",
+    "description3": "免费、公平、便捷、集成的捕捉和搜索体验:从各种设备捕捉,在不同社交网络中搜索感兴趣的人物、行为、物品或地点等。",
+    "product4": "VMSearchCam",
+    "subtitle4": "便携式搜索相机",
+    "description4": "名为SearchCam的便携式相机为用户提供随时随地的捕捉和搜索体验。用户只需将其佩戴在衣服上，按下一次即可捕捉前方的人物、物品或环境，并自动在多个社交网络平台上搜索相似内容。该产品既可作为即时社交网络附件，也可作为便携式现场调查工具。",
+    
+    "contactUs": "联系我们",
+    "tryProduct": "试用"
+    }

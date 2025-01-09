@@ -1,0 +1,21 @@
+{
+    "products":"Products",
+
+    "product1": "M.V.S.E",
+    "subtitle1": "Multi-Modal Video Search Engine",
+    "description1": "Revolutionary video search with VisionMatrix's proprietary multimodal system. Searchvideos by people, objects, actions, and events using text, speech, images, and more.Seamlessly integrated with smart recording hardware for a connected experience.",
+    "product2": "Speech Wizard",
+    "subtitle2": "Intelligent Speech-to-Text Conversion Tool",
+    "description2": "Unlock the Power of Multilingual Communication with SpeechWizard",
+    "product3": "VMSearch",
+    "subtitle3": "Ultimate Search Machine",
+    "description3": "A free, fair, convenient and integrated capture-and-search experience: captured from various types of devices and search for people, behaviors, objects or places etc. of interests among different social networks.",
+    "product4": "VMSearchCam",
+    "subtitle4": "Portable Search Camera",
+    "description4": "The portable camera called SearchCam provides user with acapture-and-search experience any time and any place. User easilywears the product onto the cloth. By just one press, SearchCamcaptures people, object or environment in front of the user, andsearches forsimilar occurrences on multiple social network platformsautomatically. The product can be either an instant social networkingattachment or a portable field investigation tool.",
+
+    "contactUs": "Contact Us",
+    "tryProduct": "Try it Out"
+
+
+}

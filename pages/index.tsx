@@ -16,7 +16,10 @@ export default function IndexPage() {
 
   return (
     <DefaultLayout>
-      <h3 className=' text-sm lg:text-base'>{t("slogan2", {ns:"home"})}</h3>
+      <div className=" w-full h-full flex items-center justify-center">
+      <h3 className=' text-7xl'>{t("slogan", {ns:"home"})}</h3>
+      </div>
+      
     </DefaultLayout>
   );
 }

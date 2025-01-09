@@ -47,9 +47,9 @@ export const Navbar = () => {
   
   const DropDownComponent = () => {
     return (
-      <Dropdown className=" border border-default-400">
+      <Dropdown className=" border border-default-400 ">
       <DropdownTrigger>
-        <div className="px-px transition-opacity hover:opacity-80 cursor-pointer text-default-500"><FaGlobe className=" text-lg"/></div>
+        <div className=" self-center transition-opacity hover:opacity-80 cursor-pointer text-default-500"><FaGlobe className=" text-lg"/></div>
       </DropdownTrigger>
       <DropdownMenu aria-label="Link Actions" className=" " color="primary" onAction={(locale) =>{
         changeLocale(locale);

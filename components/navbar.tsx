@@ -1,17 +1,17 @@
 import {
-  Navbar as NextUINavbar,
+  Navbar as HeroUINavbar,
   NavbarContent,
   NavbarMenu,
   NavbarMenuToggle,
   NavbarBrand,
   NavbarItem,
   NavbarMenuItem,
-} from "@nextui-org/navbar";
-import { Button } from "@nextui-org/button";
-import { Kbd } from "@nextui-org/kbd";
-import { Link } from "@nextui-org/link";
-import { Input } from "@nextui-org/input";
-import { link as linkStyles } from "@nextui-org/theme";
+} from "@heroui/navbar";
+import { Button } from "@heroui/button";
+import { Kbd } from "@heroui/kbd";
+import { Link } from "@heroui/link";
+import { Input } from "@heroui/input";
+import { link as linkStyles } from "@heroui/theme";
 import NextLink from "next/link";
 import clsx from "clsx";
 
@@ -26,48 +26,7 @@ import {
   Logo,
 } from "@/components/icons";
 
-import { FaGlobe } from "react-icons/fa6";
-import {Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Avatar, User} from "@nextui-org/react";
-import { useTranslation } from "next-i18next";
-import { useState } from "react";
-import { useRouter } from 'next/router'
-
-
-
 export const Navbar = () => {
-  const { t } = useTranslation()
-  const router = useRouter();
-
-  const changeLocale = (locale:any) => {
-    router.push({
-        pathname: router.pathname,
-        query: router.query
-    }, router.asPath, { locale, scroll: false },);
-  }
-  
-  const DropDownComponent = () => {
-    return (
-      <Dropdown className=" border border-default-400 ">
-      <DropdownTrigger>
-        <div className=" self-center transition-opacity hover:opacity-80 cursor-pointer text-default-500"><FaGlobe className=" text-lg"/></div>
-      </DropdownTrigger>
-      <DropdownMenu aria-label="Link Actions" className=" " color="primary" onAction={(locale) =>{
-        changeLocale(locale);
-      }} >
-        <DropdownItem key="en" >
-          ENGLISH
-        </DropdownItem>
-        <DropdownItem key="cn"  >
-          简体中文
-        </DropdownItem>
-        <DropdownItem key="hk" >
-          繁体中文
-        </DropdownItem>
-      </DropdownMenu>
-    </Dropdown>
-    )
-  }
-
   const searchInput = (
     <Input
       aria-label="Search"
@@ -90,7 +49,7 @@ export const Navbar = () => {
   );
 
   return (
-    <NextUINavbar maxWidth="xl" position="sticky">
+    <HeroUINavbar maxWidth="xl" position="sticky">
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
         <NavbarBrand className="gap-3 max-w-fit">
           <NextLink className="flex justify-start items-center gap-1" href="/">
@@ -104,7 +63,7 @@ export const Navbar = () => {
               <NextLink
                 className={clsx(
                   linkStyles({ color: "foreground" }),
-                  "data-[active=true]:text-primary data-[active=true]:font-medium",
+                  "data-[active=true]:text-primary data-[active=true]:font-medium"
                 )}
                 color="foreground"
                 href={item.href}
@@ -131,7 +90,6 @@ export const Navbar = () => {
             <GithubIcon className="text-default-500" />
           </Link>
           <ThemeSwitch />
-          <DropDownComponent/>
         </NavbarItem>
         <NavbarItem className="hidden lg:flex">{searchInput}</NavbarItem>
         <NavbarItem className="hidden md:flex">
@@ -153,7 +111,6 @@ export const Navbar = () => {
           <GithubIcon className="text-default-500" />
         </Link>
         <ThemeSwitch />
-        <DropDownComponent/>
         <NavbarMenuToggle />
       </NavbarContent>
 
@@ -179,6 +136,6 @@ export const Navbar = () => {
           ))}
         </div>
       </NavbarMenu>
-    </NextUINavbar>
+    </HeroUINavbar>
   );
 };

@@ -1,37 +1,63 @@
-import { Link } from "@nextui-org/link";
-import { Snippet } from "@nextui-org/snippet";
-import { Code } from "@nextui-org/code";
-import { button as buttonStyles } from "@nextui-org/theme";
+import { Link } from "@heroui/link";
+import { Snippet } from "@heroui/snippet";
+import { Code } from "@heroui/code";
+import { button as buttonStyles } from "@heroui/theme";
 
 import { siteConfig } from "@/config/site";
 import { title, subtitle } from "@/components/primitives";
 import { GithubIcon } from "@/components/icons";
 import DefaultLayout from "@/layouts/default";
-import { useTranslation } from "next-i18next";
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+
+import LangComponent from "@/components/langTest";
 
 export default function IndexPage() {
+	return (
+		<DefaultLayout>
+			<section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
+				<div className="inline-block max-w-xl text-center justify-center">
+					<span className={title()}>Make&nbsp;</span>
+					<span className={title({ color: "violet" })}>beautiful&nbsp;</span>
+					<br />
+					<span className={title()}>
+						websites regardless of your design experience.
+					</span>
+					<div className={subtitle({ class: "mt-4" })}>
+						Beautiful, fast and modern React UI library.
+					</div>
+					<LangComponent/>
+				</div>
 
-  const { t } = useTranslation()
+				<div className="flex gap-3">
+					<Link
+						isExternal
+						className={buttonStyles({
+							color: "primary",
+							radius: "full",
+							variant: "shadow",
+						})}
+						href={siteConfig.links.docs}
+					>
+						Documentation
+					</Link>
+					<Link
+						isExternal
+						className={buttonStyles({ variant: "bordered", radius: "full" })}
+						href={siteConfig.links.github}
+					>
+						<GithubIcon size={20} />
+						GitHub
+					</Link>
+				</div>
 
-  return (
-    <DefaultLayout>
-      <div className=" w-full h-full flex items-center justify-center">
-      <h3 className=' text-7xl'>{t("slogan", {ns:"home"})}</h3>
-      </div>
-      
-    </DefaultLayout>
-  );
-}
-
-export async function getStaticProps(context: { locale: any; }) {
-  // extract the locale identifier from the URL
-  const { locale } = context
-
-  return {
-    props: {
-      // pass the translation props to the page component
-      ...(await serverSideTranslations(locale)),
-    },
-  }
+				<div className="mt-8">
+					<Snippet hideCopyButton hideSymbol variant="bordered">
+						<span>
+							Get started by editing{" "}
+							<Code color="primary">pages/index.tsx</Code>
+						</span>
+					</Snippet>
+				</div>
+			</section>
+		</DefaultLayout>
+	);
 }

@@ -10,7 +10,13 @@ import DefaultLayout from "@/layouts/default";
 
 import LangComponent from "@/components/langTest";
 
+import { useAlert } from 'react-alert'
+import { Button } from "@heroui/button";
+
 export default function IndexPage() {
+	
+	const alert = useAlert();
+	
 	return (
 		<DefaultLayout>
 			<section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
@@ -25,6 +31,7 @@ export default function IndexPage() {
 						Beautiful, fast and modern React UI library.
 					</div>
 					<LangComponent/>
+					<Button onPress={()=>{alert.info("Button haha")}}>Alert</Button>
 				</div>
 
 				<div className="flex gap-3">

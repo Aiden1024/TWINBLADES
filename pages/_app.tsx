@@ -7,19 +7,32 @@ import { useRouter } from "next/router";
 import { fontSans, fontMono } from "@/config/fonts";
 import "@/styles/globals.css";
 
-export default function App({ Component, pageProps }: AppProps) {
-  const router = useRouter();
+// alert imports
+import { positions, transitions, types, Provider as AlertProvider } from "react-alert";
+import AlertTemplate from "@/components/alertPops/index";
 
-  return (
-    <HeroUIProvider navigate={router.push}>
-      <NextThemesProvider>
-        <Component {...pageProps} />
-      </NextThemesProvider>
-    </HeroUIProvider>
-  );
+// alertPops
+const options = {
+	offset: "10px",
+	timeout: 5000,
+	position: positions.TOP_CENTER,
+}
+
+export default function App({ Component, pageProps }: AppProps) {
+	const router = useRouter();
+
+	return (
+		<AlertProvider template={AlertTemplate} {...options}>
+			<HeroUIProvider  navigate={router.push}>
+				<NextThemesProvider defaultTheme="light" forcedTheme="light">
+					<Component {...pageProps} />
+				</NextThemesProvider>
+			</HeroUIProvider>
+		</AlertProvider>
+	);
 }
 
 export const fonts = {
-  sans: fontSans.style.fontFamily,
-  mono: fontMono.style.fontFamily,
+	sans: fontSans.style.fontFamily,
+	mono: fontMono.style.fontFamily,
 };

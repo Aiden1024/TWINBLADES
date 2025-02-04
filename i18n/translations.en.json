@@ -1,6 +1,6 @@
 {
-    "myKey": "en translation",
-    "nested": {
-      "key": "nested en translation"
-    }
+    "myKey": "en",
+		"heroPage": {
+		  "slogan":" Rising Up, Flying High "
+		}
   }

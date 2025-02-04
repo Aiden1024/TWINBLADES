@@ -13,57 +13,37 @@ import LangComponent from "@/components/langTest";
 import { useAlert } from 'react-alert'
 import { Button } from "@heroui/button";
 
+import { useTranslation } from "next-export-i18n";
 export default function IndexPage() {
 	
 	const alert = useAlert();
+	
+	const { t } = useTranslation();
 	
 	return (
 		<DefaultLayout>
 			<section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
 				<div className="inline-block max-w-xl text-center justify-center">
-					<span className={title()}>Make&nbsp;</span>
-					<span className={title({ color: "violet" })}>beautiful&nbsp;</span>
-					<br />
-					<span className={title()}>
-						websites regardless of your design experience.
-					</span>
+					<h2 className={title()}>{t('heroPage.slogan')}</h2>
 					<div className={subtitle({ class: "mt-4" })}>
-						Beautiful, fast and modern React UI library.
+						Light it up, Burn it down.
 					</div>
 					<LangComponent/>
-					<Button onPress={()=>{alert.info("Button haha")}}>Alert</Button>
+					<div className=" grid grid-cols-3 gap-2">
+					<Button color="primary" variant="flat" onPress={()=>{alert.info("This is a Info Alert")}}>Alert</Button>
+					<Button color="success" variant="flat" onPress={()=>{alert.success("This is a Success Alert")}}>Alert</Button>
+					<Button color="danger" variant="flat" onPress={()=>{alert.error("This is a Error Alert")}}>Alert</Button>
+					
+					<Button color="primary" onPress={()=>{alert.info(["Info Title", "This is a Info Alert Description"])}}>Title Alert</Button>
+					<Button color="success" onPress={()=>{alert.success(["Success Title", "This is a Success Alert Description"])}}>Title Alert</Button>
+					<Button color="danger" onPress={()=>{alert.error(["Error Title", "This is a Error Alert Description"])}}>Title Alert</Button>
+					</div>
+
 				</div>
 
-				<div className="flex gap-3">
-					<Link
-						isExternal
-						className={buttonStyles({
-							color: "primary",
-							radius: "full",
-							variant: "shadow",
-						})}
-						href={siteConfig.links.docs}
-					>
-						Documentation
-					</Link>
-					<Link
-						isExternal
-						className={buttonStyles({ variant: "bordered", radius: "full" })}
-						href={siteConfig.links.github}
-					>
-						<GithubIcon size={20} />
-						GitHub
-					</Link>
-				</div>
 
-				<div className="mt-8">
-					<Snippet hideCopyButton hideSymbol variant="bordered">
-						<span>
-							Get started by editing{" "}
-							<Code color="primary">pages/index.tsx</Code>
-						</span>
-					</Snippet>
-				</div>
+
+
 			</section>
 		</DefaultLayout>
 	);

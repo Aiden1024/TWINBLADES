@@ -24,7 +24,7 @@ export default function App({ Component, pageProps }: AppProps) {
 	return (
 		<AlertProvider template={AlertTemplate} {...options}>
 			<HeroUIProvider  navigate={router.push}>
-				<NextThemesProvider defaultTheme="light" forcedTheme="light">
+				<NextThemesProvider defaultTheme="light" >
 					<Component {...pageProps} />
 				</NextThemesProvider>
 			</HeroUIProvider>

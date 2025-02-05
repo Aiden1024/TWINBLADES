@@ -1,6 +1,7 @@
 {
-    "myKey": "en",
+	"myKey": "en",
 		"heroPage": {
-		  "slogan":" Rising Up, Flying High "
+		  "slogan":" Rising Up, Flying High ",
+		  "langSwitch":"Press the Button for Language Switching"
 		}
   }

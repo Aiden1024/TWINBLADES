@@ -52,12 +52,12 @@ export const Navbar = () => {
 				justify="end"
 			>
 				<NavbarItem className="hidden md:flex">
-					123
+					
 				</NavbarItem>
 			</NavbarContent>
 
 			<NavbarContent className="sm:hidden basis-1 pl-4" justify="end">
-				<ThemeSwitch />
+				{/* <ThemeSwitch /> */}
 			</NavbarContent>
 		</HeroUINavbar>
 	);

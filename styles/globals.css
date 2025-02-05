@@ -3,9 +3,17 @@
 @tailwind utilities;
 
 .text-title {
-	@apply text-3xl font-bold md:text-4xl
-  }
-  
-  .text-subtitle {
-	@apply text-medium text-default-700 md:text-large
-  }
+  @apply text-3xl font-bold md:text-4xl;
+}
+
+.text-subtitle {
+  @apply text-medium text-default-700 md:text-large;
+}
+
+.text-header {
+  @apply text-lg font-semibold md:text-xl;
+}
+
+.text-subheader {
+  @apply text-small text-default-500 md:text-medium;
+}

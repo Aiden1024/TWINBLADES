@@ -1,6 +1,7 @@
 {
 		"myKey": "hk",
 		"heroPage": {
-		  "slogan":"  於此升起, 如月長存 "
+		  "slogan":"  於此升起, 如月長存 ",
+		  "langSwitch":"单击按鈕執行語言切換"
 		}
 	}

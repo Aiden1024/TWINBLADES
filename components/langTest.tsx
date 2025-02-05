@@ -8,14 +8,15 @@ export default function LangComponent({}) {
 	<div>
 
 	  <nav className=" flex gap-2 py-2">
-		{['cn', 'en', 'hk'].map((item, index)=>(
-			
-			<LanguageSwitcher lang={item} key={index}>
-				<Button>{item}</Button>
-			</LanguageSwitcher>
-			
+	  {[
+		{ key: 'en', label: 'English' },
+		{ key: 'cn', label: '简体中文' },
+		{ key: 'hk', label: '繁體中文' }
+		].map((item, index) => (
+		<LanguageSwitcher lang={item.key} key={index}>
+			<Button>{item.label}</Button>
+		</LanguageSwitcher>
 		))}
-	
 			
 			
 

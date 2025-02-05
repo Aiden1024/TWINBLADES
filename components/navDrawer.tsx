@@ -34,22 +34,22 @@ const drawerMotionProps = {
 
 const items = [
 	{
-		key: "Home",
+		key: "home",
 		label: "Home",
 		href: "/",
 	},
 	{
-		key: "About",
+		key: "about",
 		label: "About",
 		href: "/about",
 	},
 	{
-		key: "Docs",
+		key: "docs",
 		label: "Docs",
 		href: "/docs",
 	},
 	{
-		key: "Pricing",
+		key: "pricing",
 		label: "Pricing",
 		href: "/pricing",
 	},
@@ -62,16 +62,19 @@ const NavDrawer = ({ isOpen = false, onOpenChange = () => { } }) => {
 				<DrawerContent>
 					{(onClose) => (
 						<>
-							<DrawerHeader className="flex gap-1 items-center pt-3">
+							<DrawerHeader className="flex gap-1 items-center pt-3 pb-0">
 								<Button isIconOnly radius="full" variant="light" onPress={onClose}>
 									<LuChevronsLeft className=" text-xl" />
 								</Button>
 							</DrawerHeader>
 
 							<DrawerBody>
-								<Listbox aria-label="Dynamic Actions" variant='flat' items={items}>
+								<Listbox aria-label="Dynamic Actions" variant='flat' className=' ' items={items}>
 									{(item) => (
 										<ListboxItem
+											
+									
+											showDivider={item.key === "docs" ? true : false}
 											key={item.key}
 											className={""}
 											color={"default"}
@@ -80,6 +83,7 @@ const NavDrawer = ({ isOpen = false, onOpenChange = () => { } }) => {
 											{item.label}
 										</ListboxItem>
 									)}
+								
 								</Listbox>
 							</DrawerBody>
 							<DrawerFooter>

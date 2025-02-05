@@ -1,11 +1,6 @@
-import { Link } from "@heroui/link";
-import { Snippet } from "@heroui/snippet";
-import { Code } from "@heroui/code";
 import { button as buttonStyles } from "@heroui/theme";
 
-import { siteConfig } from "@/config/site";
 import { title, subtitle } from "@/components/primitives";
-import { GithubIcon } from "@/components/icons";
 import DefaultLayout from "@/layouts/default";
 
 import LangComponent from "@/components/langTest";
@@ -28,6 +23,9 @@ export default function IndexPage() {
 					<div className={subtitle({ class: "mt-4" })}>
 						Light it up, Burn it down.
 					</div>
+					
+					<h2 className=" text-title">Title</h2>
+					<h2 className=" text-subtitle">subtitle</h2>
 					<LangComponent/>
 					<div className=" grid grid-cols-3 gap-2">
 					<Button color="primary" variant="flat" onPress={()=>{alert.info("This is a Info Alert")}}>Alert</Button>

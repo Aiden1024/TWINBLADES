@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.text-title {
+	@apply text-3xl font-bold md:text-4xl
+  }
+  
+  .text-subtitle {
+	@apply text-medium text-default-700 md:text-large
+  }

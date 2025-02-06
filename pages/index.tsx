@@ -13,6 +13,8 @@ import { useState } from "react";
 import AlertDemo from "./rootPageComp/AlertDemo";
 import DFontsDemo from "./rootPageComp/DFontsDemo";
 import FetchHookDemo from "./rootPageComp/FetchHookDemo";
+import ProviderDemo from "./rootPageComp/ProviderDemo";
+
 export default function IndexPage() {
 	const alert = useAlert();
 
@@ -59,6 +61,10 @@ export default function IndexPage() {
 			
 			<div>
 				<FetchHookDemo/>
+			</div>
+			
+			<div>
+				<ProviderDemo/>
 			</div>
 		</section>
 	);

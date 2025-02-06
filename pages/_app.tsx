@@ -11,9 +11,10 @@ import "@/styles/globals.css";
 import { positions, transitions, types, Provider as AlertProvider } from "react-alert";
 import AlertTemplate from "@/components/alertPops/index";
 import DefaultLayout from "@/layouts/default";
-import localFont from 'next/font/local'     
+import localFont from 'next/font/local'
 import { useTranslation } from "next-export-i18n";
 import useCurrentLang from "@/hooks/useCurrentLang";
+import { DataProvider } from "@/components/providerContext";
 // alertPops
 const options = {
 	offset: "10px",
@@ -28,30 +29,34 @@ const hkFont = localFont({ src: '../fonts/NotoSansHK-VariableFont_wght.ttf' })
 export default function App({ Component, pageProps }: AppProps) {
 	const router = useRouter();
 	const lang = useCurrentLang()
-	
+
 	const getFontClassName = () => {
 		switch (lang) {
-		  case 'en':
-			return enFont.className;
-		  case 'cn':
-			return cnFont.className;
-		  case 'hk':
-			return hkFont.className;
-		  default:
-			return enFont.className;
+			case 'en':
+				return enFont.className;
+			case 'cn':
+				return cnFont.className;
+			case 'hk':
+				return hkFont.className;
+			default:
+				return enFont.className;
 		}
-	  };
+	};
 
 	return (
-		<AlertProvider template={AlertTemplate} {...options}>
-			<HeroUIProvider  navigate={router.push} className={getFontClassName()}>
-				<NextThemesProvider defaultTheme="light" >
-					<DefaultLayout>
-						<Component {...pageProps} />
-					</DefaultLayout>
-				</NextThemesProvider>
-			</HeroUIProvider>
-		</AlertProvider>
+		<DataProvider>
+			<AlertProvider template={AlertTemplate} {...options}>
+				<HeroUIProvider navigate={router.push} className={getFontClassName()}>
+					<NextThemesProvider defaultTheme="light" >
+
+						<DefaultLayout>
+							<Component {...pageProps} />
+						</DefaultLayout>
+
+					</NextThemesProvider>
+				</HeroUIProvider>
+			</AlertProvider>
+		</DataProvider>
 	);
 }
 

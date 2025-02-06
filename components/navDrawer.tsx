@@ -49,9 +49,9 @@ const items = [
 		href: "/docs",
 	},
 	{
-		key: "pricing",
-		label: "Pricing",
-		href: "/pricing",
+		key: "setting",
+		label: "Setting",
+		href: "/setting",
 	},
 ];
 const NavDrawer = ({ isOpen = false, onOpenChange = () => { } }) => {

@@ -2,6 +2,7 @@
 	"myKey": "en",
 		"heroPage": {
 		  "slogan":" Rising Up, Flying High ",
-		  "langSwitch":"Press the Button for Language Switching"
+		  "langSwitch":"Press the Button for Language Switching",
+		  "template": "Support Template String, Pressed {{count}} times"
 		}
   }

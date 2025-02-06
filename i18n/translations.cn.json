@@ -2,6 +2,8 @@
 		"myKey": "cn",
 		"heroPage": {
 		  "slogan":" 于此升起, 如月长存 ",
-		  "langSwitch":"单击按钮执行语言切换"
+		  "langSwitch":"单击按钮执行语言切换",
+		  "template":"支持填充， 单击 {{count}} 次"
+		  
 		}
 	}

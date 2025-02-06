@@ -8,7 +8,7 @@ const i18n = {
 		cn,
 		hk,
 	},
-	defaultLang: "en",
+	defaultLang: process.env.NEXT_PUBLIC_DEFAULT_LANG || 'en',
 	useBrowserDefault: true,
 	// optional property will default to "query" if not set
 	languageDataStore:  "localStorage",

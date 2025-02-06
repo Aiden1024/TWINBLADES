@@ -2,6 +2,7 @@
 		"myKey": "hk",
 		"heroPage": {
 		  "slogan":"  於此升起, 如月長存 ",
-		  "langSwitch":"单击按鈕執行語言切換"
+		  "langSwitch":"单击按鈕執行語言切換",
+		  "template":"支持填充，點擊 {{count}} 次"
 		}
 	}

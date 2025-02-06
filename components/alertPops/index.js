@@ -21,10 +21,10 @@ const AlertTemplate = ({ message, options, style, close }) => {
 			{
 				(typeof message === 'string' || message instanceof String) 
 				? <Alert variant='faded' title={message} color={typeCovert(alertType)} onClose={close} />
-				: Array.isArray(message) && typeof message[0] === 'string' && typeof message[1] === 'string'
+				: Array.isArray(message) &&  message[0]  && message[1] 
 				?
-				<Alert variant='faded' title={message[0]} color={typeCovert(alertType)} description={message[1]} onClose={close}/>
-				: message.toString()
+				<Alert variant='faded' title={message[0].toString()} color={typeCovert(alertType)} description={message[1].toString()} onClose={close}/>
+				: <Alert variant='faded' title={message.toString()} color={typeCovert(alertType)} onClose={close} />
 			}
 			
 		

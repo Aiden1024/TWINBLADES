@@ -1,7 +1,3 @@
-import { button as buttonStyles } from "@heroui/theme";
-
-import { title, subtitle } from "@/components/primitives";
-import DefaultLayout from "@/layouts/default";
 
 import LangComponent from "@/components/langSwitcher";
 
@@ -11,7 +7,12 @@ import { Button } from "@heroui/button";
 import { useTranslation } from "next-export-i18n";
 import { Code } from "@heroui/react";
 import { useState } from "react";
-import { RiRefreshLine } from "react-icons/ri";
+
+
+
+import AlertDemo from "./rootPageComp/AlertDemo";
+import DFontsDemo from "./rootPageComp/DFontsDemo";
+import FetchHookDemo from "./rootPageComp/FetchHookDemo";
 export default function IndexPage() {
 	const alert = useAlert();
 
@@ -49,86 +50,15 @@ export default function IndexPage() {
 			</div>
 
 			<div>
-				<h2 className="text-header">Pop Alert Ability</h2>
-				<h2 className=" text-subheader">
-					Press the Button to Trigger Pop Alert
-				</h2>
-				<div className=" grid grid-cols-3 gap-2 w-fit">
-					<Button
-						color="primary"
-						variant="flat"
-						onPress={() => {
-							alert.info("This is a Info Alert");
-						}}
-					>
-						Alert
-					</Button>
-					<Button
-						color="success"
-						variant="flat"
-						onPress={() => {
-							alert.success("This is a Success Alert");
-						}}
-					>
-						Alert
-					</Button>
-					<Button
-						color="danger"
-						variant="flat"
-						onPress={() => {
-							alert.error("This is a Error Alert");
-						}}
-					>
-						Alert
-					</Button>
-
-					<Button
-						color="primary"
-						onPress={() => {
-							alert.info(["Info Title", "This is a Info Alert Description"]);
-						}}
-					>
-						Title Alert
-					</Button>
-					<Button
-						color="success"
-						onPress={() => {
-							alert.success([
-								"Success Title",
-								"This is a Success Alert Description",
-							]);
-						}}
-					>
-						Title Alert
-					</Button>
-					<Button
-						color="danger"
-						onPress={() => {
-							alert.error(["Error Title", "This is a Error Alert Description"]);
-						}}
-					>
-						Title Alert
-					</Button>
-				</div>
-				<Code className=" w-fit">/components/alertPops/index.js </Code>
+				<AlertDemo/>
 			</div>
 			
 			<div>
-				<h2 className="text-header">I18n Based Dynamic Fonts</h2>
-				<h2 className=" text-subheader">
-					{t("heroPage.slogan", { count: count })}
-				</h2>
-
-				<div className=" flex items-center gap-2">
-					<LangComponent
-						buttonFunc={() => {
-							setCount(count + 1);
-						}}
-					/>
-					
-					<Button onPress={()=> window.location.reload()} variant="flat" color="primary" startContent={<RiRefreshLine className=" text-xl"/>} className=" w-fit" isIconOnly></Button>
-				</div>
-				<Code className=" w-fit">/fonts/[fontFamily].ttf </Code>
+					<DFontsDemo/>
+			</div>
+			
+			<div>
+				<FetchHookDemo/>
 			</div>
 		</section>
 	);

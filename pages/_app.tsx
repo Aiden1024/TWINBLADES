@@ -13,7 +13,7 @@ import AlertTemplate from "@/components/alertPops/index";
 import DefaultLayout from "@/layouts/default";
 import localFont from 'next/font/local'     
 import { useTranslation } from "next-export-i18n";
-import useCurrentLang from "@/components/hooks/useCurrentLang";
+import useCurrentLang from "@/hooks/useCurrentLang";
 // alertPops
 const options = {
 	offset: "10px",

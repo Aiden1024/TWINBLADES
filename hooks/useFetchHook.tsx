@@ -46,7 +46,10 @@ const useFetch = () => {
   const [error, setError] = useState(null); // State for storing errors
   const [loading, setLoading] = useState(false); // State for tracking loading status
   const [initialLoading, setInitialLoading] = useState(true); // State for tracking initial loading status
-
+  
+  const handleTimeout = () => {
+	alert.info('Bad Internet Connection');
+  };
   const sessionToken = getSessionToken(); // Get the session token
 
   // Fetch data function
@@ -113,12 +116,16 @@ const useFetch = () => {
 		return;
 	  }
 
+	  
+	  const timeoutId = setTimeout(handleTimeout, 5000);
 	  // Make the fetch request
 	  const response = await fetch(fullUrl, {
 		method,
 		headers,
 		body: requestBody,
 	  });
+	  
+	  clearTimeout(timeoutId);
 
 	  console.log('response', response);
 	  const data = await response.json();

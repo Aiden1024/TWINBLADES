@@ -1,7 +1,7 @@
 import React from 'react'
 import useFetch from '@/hooks/useFetchHook'
 import { Button, Code } from '@heroui/react'
-import { PATH_LOGIN } from '@/APIs/home'
+import { PATH_LOGIN, PATH_USERS } from '@/APIs/home'
 
 
 const successLoginBody = {
@@ -15,6 +15,7 @@ const errorLoginBody = {
 const FetchHookDemo = () => {
 	
 	const { error:logInError, loading:logInLoading, fetchData: logInFetchData } = useFetch()
+	const { error:gerUserError, loading:gerUserLoading, fetchData: gerUserFetchData } = useFetch()
 	async function handleLogIn(body={}) {
 		const res = await logInFetchData({
 		  url: PATH_LOGIN,
@@ -23,6 +24,20 @@ const FetchHookDemo = () => {
 		  body: body,
 		  errorMsgTitle: 'Login Failed',
 		  successMsgTitle:"Login Success",
+		  useSessionToken:false
+		});
+	
+	
+	  }
+	  
+	  async function handleUserData() {
+		const res = await gerUserFetchData({
+		  url: PATH_LOGIN,
+		  method: 'GET',
+		  type:"JSON",
+		  params:{"delay": 6},
+		  errorMsgTitle: 'Get User Data Failed',
+		  successMsgTitle:"Get User Data Success",
 		  useSessionToken:false
 		});
 	
@@ -37,10 +52,10 @@ const FetchHookDemo = () => {
 			<div className=' flex items-center gap-2'>
 				<Button onPress={() => handleLogIn(successLoginBody)} isLoading={logInLoading} color='success'>Login Success</Button>
 				<Button onPress={() => handleLogIn({})} isLoading={logInLoading} color='danger'>Fetch Error</Button>
-				<Button onPress={() => handleLogIn(errorLoginBody)} isLoading={logInLoading} color='danger'>400 Error</Button>
+				<Button onPress={handleUserData} isLoading={gerUserLoading} color='default'>Delay Response</Button>
 				
 			</div>
-			<h2>Error: {logInError}</h2>
+			<h2>Error: {logInError || gerUserError}</h2>
 
 			<Code className=" w-fit">/hooks/useFetchHook.tsx</Code>
 			<Code className=" w-fit">/public/server.json</Code>

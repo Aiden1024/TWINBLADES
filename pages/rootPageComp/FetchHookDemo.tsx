@@ -32,7 +32,7 @@ const FetchHookDemo = () => {
 	<>
 			<h2 className="text-header">React useFetch Hook</h2>
 			<h2 className=" text-subheader">
-				Use this Hook for Easy REST API Handling
+				REST API Handling with Alert & Dynamic IPs
 			</h2>
 			<div className=' flex items-center gap-2'>
 				<Button onPress={() => handleLogIn(successLoginBody)} isLoading={logInLoading} color='success'>Login Success</Button>
@@ -43,6 +43,7 @@ const FetchHookDemo = () => {
 			<h2>Error: {logInError}</h2>
 
 			<Code className=" w-fit">/hooks/useFetchHook.tsx</Code>
+			<Code className=" w-fit">/public/server.json</Code>
 		</>
   )
 }

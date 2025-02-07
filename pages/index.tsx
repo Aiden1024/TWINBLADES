@@ -49,6 +49,7 @@ export default function IndexPage() {
 					}}
 				/>
 				<Code className=" w-fit">/i18n/translations.[Lang].json </Code>
+				<Code className=" w-fit">/i18n/index.js </Code>
 			</div>
 
 			<div>
@@ -56,7 +57,7 @@ export default function IndexPage() {
 			</div>
 			
 			<div>
-					<DFontsDemo/>
+				<DFontsDemo/>
 			</div>
 			
 			<div>

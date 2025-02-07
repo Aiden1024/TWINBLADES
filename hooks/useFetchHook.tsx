@@ -116,8 +116,8 @@ const useFetch = () => {
 		return;
 	  }
 
-	  
-	  const timeoutId = setTimeout(handleTimeout, 5000);
+	  const timeoutMsecond = Number(process.env.NEXT_PUBLIC_FETCH_INFO_TIMEOUT ) || 5000
+	  const timeoutId = setTimeout(handleTimeout, timeoutMsecond);
 	  // Make the fetch request
 	  const response = await fetch(fullUrl, {
 		method,

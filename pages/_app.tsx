@@ -3,8 +3,6 @@ import type { AppProps } from "next/app";
 import { HeroUIProvider } from "@heroui/system";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import { useRouter } from "next/router";
-
-import { fontSans, fontMono } from "@/config/fonts";
 import "@/styles/globals.css";
 
 // alert imports
@@ -15,6 +13,9 @@ import localFont from 'next/font/local'
 import { useTranslation } from "next-export-i18n";
 import useCurrentLang from "@/hooks/useCurrentLang";
 import { DataProvider } from "@/components/providerContext";
+
+import { enFont, cnFont } from "@/config/fonts";
+
 // alertPops
 const options = {
 	offset: "10px",
@@ -22,8 +23,8 @@ const options = {
 	position: positions.TOP_CENTER,
 }
 // fonts
-const enFont = localFont({ src: '../fonts/Roboto-VariableFont_wdth,wght.ttf' })
-const cnFont = localFont({ src: '../fonts/NotoSansSC-VariableFont_wght.ttf' })
+// const enFont = localFont({ src: '../fonts/Roboto-VariableFont_wdth,wght.ttf' })
+// const cnFont = localFont({ src: '../fonts/NotoSansSC-VariableFont_wght.ttf' })
 const hkFont = localFont({ src: '../fonts/NotoSansHK-VariableFont_wght.ttf' })
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -60,7 +61,3 @@ export default function App({ Component, pageProps }: AppProps) {
 	);
 }
 
-export const fonts = {
-	sans: fontSans.style.fontFamily,
-	mono: fontMono.style.fontFamily,
-};

@@ -1,11 +1,5 @@
-import { Fira_Code as FontMono, Inter as FontSans } from "next/font/google";
+import localFont from "next/font/local";
 
-export const fontSans = FontSans({
-  subsets: ["latin"],
-  variable: "--font-sans",
-});
+export const cnFont = localFont({ src: '../fonts/NotoSansSC-VariableFont_wght.ttf' })
+export const enFont = localFont({ src: '../fonts/Raleway-VariableFont_wght.ttf' })
 
-export const fontMono = FontMono({
-  subsets: ["latin"],
-  variable: "--font-mono",
-});

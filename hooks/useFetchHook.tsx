@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useAlert } from 'react-alert';
 import Router from 'next/router';
+import { useRouter } from 'next/router';
 
 // Define the interface for the FetchDataProps
 interface FetchDataProps {
@@ -30,7 +31,7 @@ const getSessionToken = () => {
 // Fetch the server IP from the server.json file
 const getServerIP = async (key: string = 'slpIP') => {
   try {
-	const response = await fetch(process.env.NEXT_PUBLIC_BASE_PATH || '' + '/server.json');
+	const response = await fetch(Router.basePath  + '/server.json');
 	const data = await response.json();
 	console.log('data', data[key]);
 	return data[key];
@@ -46,6 +47,8 @@ const useFetch = () => {
   const [error, setError] = useState(null); // State for storing errors
   const [loading, setLoading] = useState(false); // State for tracking loading status
   const [initialLoading, setInitialLoading] = useState(true); // State for tracking initial loading status
+
+  const router = useRouter();
   
   const handleTimeout = () => {
 	alert.info('Bad Internet Connection');
@@ -128,8 +131,10 @@ const useFetch = () => {
 	  clearTimeout(timeoutId);
 
 	  console.log('response', response);
-	  const data = await response.json();
+	  const rawData = await response;
+	  const data = await rawData.json();
 	  // Handle different response scenarios
+	  
 	  if (response.status === 401) {
 		alert.info('Session TIME OUT');
 		localStorage.removeItem(sessionTokenKey); // Remove the session token from local storage
@@ -151,8 +156,11 @@ const useFetch = () => {
 			}
 		  
 		} 
-	  }
 
+		return data;
+	  }
+	  
+	  return null;
 
 	// //   if (data && data.message) {
 	// // 	alert.error(data.message); // Display error message from the response
@@ -160,8 +168,6 @@ const useFetch = () => {
 	// 	  if (data && data.error) {
 	// 	alert.error(data.error); // Display error message from the response
 	//   }
-
-	  return data;
 	} catch (error) {
 	  console.error('Error fetching data:', error);
 	  setError(error?.message); // Set the error state

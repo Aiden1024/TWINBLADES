@@ -14,7 +14,7 @@ import { useTranslation } from "next-export-i18n";
 import useCurrentLang from "@/hooks/useCurrentLang";
 import { DataProvider } from "@/components/providerContext";
 
-import { enFont, cnFont } from "@/config/fonts";
+import { mixfonts } from "@/config/fonts";
 
 // alertPops
 const options = {
@@ -22,32 +22,17 @@ const options = {
 	timeout: 5000,
 	position: positions.TOP_CENTER,
 }
-// fonts
-// const enFont = localFont({ src: '../fonts/Roboto-VariableFont_wdth,wght.ttf' })
-// const cnFont = localFont({ src: '../fonts/NotoSansSC-VariableFont_wght.ttf' })
-const hkFont = localFont({ src: '../fonts/NotoSansHK-VariableFont_wght.ttf' })
+
 
 export default function App({ Component, pageProps }: AppProps) {
 	const router = useRouter();
 	const lang = useCurrentLang()
 
-	const getFontClassName = () => {
-		switch (lang) {
-			case 'en':
-				return enFont.className;
-			case 'cn':
-				return cnFont.className;
-			case 'hk':
-				return hkFont.className;
-			default:
-				return enFont.className;
-		}
-	};
 
 	return (
 		<DataProvider>
 			<AlertProvider template={AlertTemplate} {...options}>
-				<HeroUIProvider navigate={router.push} className={getFontClassName()}>
+				<HeroUIProvider navigate={router.push} className={` ${mixfonts.className}`}>
 					<NextThemesProvider defaultTheme="light" >
 
 						<DefaultLayout>

@@ -1,5 +1,19 @@
 import localFont from "next/font/local";
 
-export const cnFont = localFont({ src: '../fonts/NotoSansSC-VariableFont_wght.ttf' })
-export const enFont = localFont({ src: '../fonts/Raleway-VariableFont_wght.ttf' })
+export const mixfonts = localFont({
+    src: [
+        {
+            path: './NotoSansSC-VariableFont_wght.ttf',
+            weight: '100 900',
+            style: 'normal',
+        },
+        {
+            path: './Raleway-VariableFont_wght.ttf',
+            weight: '100 900',
+            style: 'normal',
+        },
 
+
+    ],
+    variable: '--font-family'
+})

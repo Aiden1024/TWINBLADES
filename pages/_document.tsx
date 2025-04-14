@@ -1,6 +1,6 @@
 import { Html, Head, Main, NextScript } from "next/document";
 import clsx from "clsx";
-import { enFont, cnFont } from "@/config/fonts";
+import { mixfonts } from "@/config/fonts";
 
 export default function Document() {
   return (
@@ -9,7 +9,7 @@ export default function Document() {
       <body
         className={clsx(
           "min-h-screen bg-background font-sans antialiased",
-          enFont.className,
+          mixfonts.className,
         )}
       >
         <Main />

@@ -1,185 +1,299 @@
 import { useState, useEffect } from 'react';
 import { useAlert } from 'react-alert';
 import Router from 'next/router';
+import { useRef } from 'react';
 import { useRouter } from 'next/router';
 
-// Define the interface for the FetchDataProps
 interface FetchDataProps {
-  url: string; // Required URL for the fetch request
-  method: string; // Required HTTP method for the fetch request
-  body?: any; // Optional request body
-  type?: 'JSON' | 'FORM_DATA'; // Optional request body type (JSON or FORM_DATA)
-  params?: { [key: string]: string | number }; // Optional query parameters
-  successMsgTitle?: string | null; // Optional success message title
-  successMsgContent?: string | null; // Optional success message content
-  errorMsgTitle?: string; // Optional error message title
-  errorMsgContent?: string; // Optional error message content
-  backendUrl?: string | null; // Optional backend URL
-  serverJSONKey?: string; // Optional key for fetching server IP from server.json
-  useSessionToken?: boolean; // Optional flag to use session token in the request
+  url: string;
+  method: string;
+  body?: any;
+  type?: 'JSON' | 'FORM_DATA';
+  params?: { [key: string]: string | number };
+  successMsgTitle?: string | null;
+  successMsgContent?: string | null;
+  errorMsgTitle?: string;
+  errorMsgContent?: string | null;
+  backendUrl?: string | null;
+  serverJSONKey?: string;
+  useSessionToken?: boolean;
+  version?: string;
+  override401?: boolean;
+  override403?: boolean;
+  overrideTimeout?: null | number;
+  disableErrorMsg?: boolean;
 }
 
-const sessionTokenKey = process.env.NEXT_PUBLIC_TOKEN_KEY
-// Get the session token from the local storage
-const getSessionToken = () => {
+const sessionTokenKey = process.env.NEXT_PUBLIC_TOKEN_KEY;
+
+export const getSessionToken = () => {
   if (typeof window !== 'undefined') {
-	return window.localStorage.getItem(sessionTokenKey);
+    return window.localStorage.getItem(sessionTokenKey);
   }
   return null;
 };
-
-// Fetch the server IP from the server.json file
-const getServerIP = async (key: string = 'slpIP') => {
+export const getServerIP = async (key: string = 'slpIP') => {
   try {
-	const response = await fetch(Router.basePath  + '/server.json');
-	const data = await response.json();
-	console.log('data', data[key]);
-	return data[key];
+    const response = await fetch(Router.basePath + '/server.json');
+    const data = await response.json();
+    console.log('data', data[key]);
+    
+    // 如果是空字符串，需要根据不同情况返回不同的格式
+    if (data[key] === "") {
+      if (key === "IP_2") {
+        // 添加协议前缀
+        return `http://${window.location.hostname}:5012/v4/static`;
+      }
+      // 添加协议前缀
+      return `http://${window.location.hostname}:5012`;
+    }
+    return data[key];
+
   } catch (error) {
-	console.error('Error fetching slpIP:', error);
-	return window.location.hostname;
+    console.error('Error fetching slpIP:', error);
+    if (key === "IP_2") {
+      return `http://${window.location.hostname}:5012/v4/static`;
+    }
+    return `http://${window.location.hostname}:5012`;
   }
 };
 
-// Custom hook for fetching data
 const useFetch = () => {
-  const alert = useAlert(); // Use the react-alert library for displaying alerts
-  const [error, setError] = useState(null); // State for storing errors
-  const [loading, setLoading] = useState(false); // State for tracking loading status
-  const [initialLoading, setInitialLoading] = useState(true); // State for tracking initial loading status
-
+  const alert = useAlert();
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [initialLoading, setInitialLoading] = useState(true);
   const router = useRouter();
-  
-  const handleTimeout = () => {
-	alert.info('Bad Internet Connection');
-  };
-  const sessionToken = getSessionToken(); // Get the session token
+  const abortControllerRef = useRef<AbortController | null>(null);
 
-  // Fetch data function
+  const cancelFetch = () => {
+    try {
+        if (abortControllerRef.current) {
+            abortControllerRef.current.abort("Request Cancelled");
+            abortControllerRef.current = null;
+            setLoading(false); // 在取消请求时也重置 loading 状态
+        }
+    } catch (error) {
+        console.warn('Error cancelling fetch:', error);
+    }
+};
+
   const fetchData = async (props: FetchDataProps) => {
-	const {
-	  url,
-	  method,
-	  body = null,
-	  type = 'JSON',
-	  params = {},
-	  successMsgTitle = null,
-	  successMsgContent = null,
-	  errorMsgTitle = 'OoF',
-	  errorMsgContent = null,
-	  backendUrl = null,
-	  serverJSONKey = 'IP_1',
-	  useSessionToken = true,
-	} = props;
-	setLoading(true); // Set loading state to true
-	setError(null); // Reset error state
+    cancelFetch();
 
-	try {
-	  let serverIP = backendUrl;
+    const controller = new AbortController();
+    abortControllerRef.current = controller;
+    const signal = controller.signal;
 
-	  // If backendUrl is not provided, fetch it from server.json
-	  if (!serverIP) {
-		serverIP = await getServerIP(serverJSONKey);
-	  }
+    const {
+      url,
+      method,
+      body = null,
+      type = 'JSON',
+      params = {},
+      successMsgTitle = null,
+      successMsgContent = null,
+      errorMsgTitle = 'OoF',
+      errorMsgContent = null,
+      backendUrl = null,
+      serverJSONKey = 'IP_1',
+      useSessionToken = true,
+      version = '/v4',
+      override401 = false,
+      override403 = false,
+      overrideTimeout = null,
+      disableErrorMsg = false
+    } = props;
 
-	  // Construct the URL with query parameters
-	  const urlParams = new URLSearchParams(
-		Object.entries(params).reduce(
-		  (acc, [key, value]) => ({
-			...acc,
-			[key]: value.toString(),
-		  }),
-		  {}
-		)
-	  ).toString();
-	  const fullUrl = `${serverIP}${url}${urlParams ? `?${urlParams}` : ''}`;
+    setLoading(true);
+    setError(null);
 
-	  let requestBody;
-	  let headers = {};
+    try {
+      if (!url) {
+        throw new Error('URL is required');
+      }
 
-	  // Set request body and headers based on the request type
-	  if (type === 'JSON') {
-		requestBody = body ? JSON.stringify(body) : null;
-		headers = {
-		  'Content-Type': 'application/json',
-		};
-	  } else if (type === 'FORM_DATA') {
-		requestBody = body;
-	  }
+      let serverIP = backendUrl;
+      if (!serverIP) {
+        try {
+          serverIP = await getServerIP(serverJSONKey);
+          if (!serverIP) throw new Error('Failed to get server IP');
+        } catch (err) {
+          console.error('Server IP error:', err);
+          if (!disableErrorMsg) {
+            alert.error('Failed to connect to server');
+          }
+          return null;
+        }
+      }
 
-	  // Add session token to the request headers if available and useSessionToken is true
-	  if (useSessionToken && sessionToken) {
-		headers = {
-			...headers, // Spread existing headers
-			'X-Session-Token': sessionToken, // Add the session token header
-		  };
-	  } else if (useSessionToken && !sessionToken) {
-		console.error('NO TOKEN');
-		Router.push('/auth'); // Redirect to the authentication page if no token is available
-		return;
-	  }
+      // 更安全的版本
+      const urlParams = params
+        ? new URLSearchParams(
+          Object.entries(params)
+            .filter(([_, value]) => value != null)  // 过滤掉 null 和 undefined
+            .reduce(
+              (acc, [key, value]) => ({
+                ...acc,
+                [key]: String(value)  // 使用 String() 更安全
+              }),
+              {}
+            )
+        ).toString()
+        : '';
 
-	  const timeoutMsecond = Number(process.env.NEXT_PUBLIC_FETCH_INFO_TIMEOUT ) || 5000
-	  const timeoutId = setTimeout(handleTimeout, timeoutMsecond);
-	  // Make the fetch request
-	  const response = await fetch(fullUrl, {
-		method,
-		headers,
-		body: requestBody,
-	  });
-	  
-	  clearTimeout(timeoutId);
+      const fullUrl = `${serverIP}${version}${url}${urlParams ? `?${urlParams}` : ''}`;
 
-	  console.log('response', response);
-	  const rawData = await response;
-	  const data = await rawData.json();
-	  // Handle different response scenarios
-	  
-	  if (response.status === 401) {
-		alert.info('Session TIME OUT');
-		localStorage.removeItem(sessionTokenKey); // Remove the session token from local storage
-		Router.push('/auth'); // Redirect to the authentication page
-	  } else if (!response.ok) {
-		console.error(`HTTP error ${response.status}`);
-		setError(data?.error); // Set the error state
-		alert.error([
-		  errorMsgTitle,
-		  errorMsgContent ? errorMsgContent :  data?.error ? data.error :  `HTTP Error ${response.statusText}`,
-		]);
-	  } else {
-		// Display success message if provided
-		if (successMsgTitle ) {
-			if ( successMsgContent) {
-				alert.success([successMsgTitle, successMsgContent]);
-			} else {
-				alert.success(successMsgTitle);
-			}
-		  
-		} 
+      let requestBody;
+      let headers: Record<string, string> = {};
 
-		return data;
-	  }
-	  
-	  return null;
+      if (type === 'JSON') {
+        requestBody = body ? JSON.stringify(body) : null;
+        headers = {
+          'Content-Type': 'application/json',
+        };
+      } else if (type === 'FORM_DATA') {
+        requestBody = body;
+      }
 
-	// //   if (data && data.message) {
-	// // 	alert.error(data.message); // Display error message from the response
-	// //   }
-	// 	  if (data && data.error) {
-	// 	alert.error(data.error); // Display error message from the response
-	//   }
-	} catch (error) {
-	  console.error('Error fetching data:', error);
-	  setError(error?.message); // Set the error state
-	  alert.error(error?.message); // Display error to the user
-	} finally {
-	  setLoading(false); // Set loading state to false
-	  setInitialLoading(false); // Set initial loading state to false
-	}
+      const sessionToken = getSessionToken();
+      if (useSessionToken && sessionToken) {
+        headers = {
+          ...headers,
+          'X-Session-Token': sessionToken,
+        };
+      } else if (useSessionToken && !sessionToken) {
+        console.error('NO TOKEN');
+        router.push('/auth');
+        return null;
+      }
+
+      let timeoutId: NodeJS.Timeout | null = null;
+
+      // 设置超时提醒
+      const timeoutMsecond = overrideTimeout ? overrideTimeout : Number(process.env.NEXT_PUBLIC_FETCH_INFO_TIMEOUT) || 5000;
+      timeoutId = setTimeout(() => {
+        // 只在请求还在进行且组件未卸载时显示提醒
+        if (!signal.aborted) {
+          alert.info('Bad Internet Connection');
+        }
+      }, timeoutMsecond);
+
+      const response = await fetch(fullUrl, {
+        method,
+        headers,
+        body: requestBody,
+        signal,
+      });
+
+      // 请求完成后清除超时提醒
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+      }
+
+      // 如果请求被取消，直接返回
+      if (signal.aborted) {
+        return null;
+      }
+
+      if (!response) {
+        if (!disableErrorMsg) {
+          alert.error('No response received');
+        }
+        return null;
+      }
+
+      let data;
+      try {
+        data = await response.json();
+      } catch (jsonError) {
+        console.error('JSON parsing error:', jsonError);
+        if (!disableErrorMsg) {
+          console.error('Invalid response format');
+        }
+        return null;
+      }
+
+      if (!override401 && response.status === 401) {
+        if (!disableErrorMsg) {
+          alert.info('Session TIME OUT');
+        }
+        localStorage.removeItem(sessionTokenKey);
+        Router.push('/auth');
+        return null;
+      }
+
+      if (!override403 && response.status === 403) {
+        if (!disableErrorMsg) {
+          alert.info('Permission Denied');
+        }
+        Router.push('/');
+        return null;
+      }
+
+      if (!response.ok) {
+        console.error(`HTTP error ${data?.message}`);
+        setError(data?.message);
+        if (!disableErrorMsg) {
+          alert.error([
+            errorMsgTitle,
+            errorMsgContent ? errorMsgContent : data?.message ? data.message : `HTTP Error ${response.statusText}`,
+          ]);
+        }
+        return data;
+      }
+
+      if (successMsgTitle && !disableErrorMsg) {
+        if (successMsgContent) {
+          alert.success([successMsgTitle, successMsgContent]);
+        } else {
+          alert.success(successMsgTitle);
+        }
+      }
+
+      return data;
+
+    } catch (error) {
+      // 如果请求被取消，静默返回
+      if (error.name === 'AbortError' || signal.aborted) {
+        console.log('Request cancelled');
+        return null;
+      }
+
+      console.error('Fetch error:', error);
+
+      if (!navigator.onLine) {
+        if (!disableErrorMsg) {
+          alert.error('No internet connection');
+        }
+      } else if (!disableErrorMsg && !signal.aborted) {  // 只在非取消状态下显示错误
+        alert.error([
+          errorMsgTitle,
+          errorMsgContent || error?.message || 'An error occurred'
+        ]);
+      }
+
+      setError(error?.message || 'An error occurred');
+      return null;
+
+    } finally {
+      if (!signal.aborted) {  // 只在非取消状态下更新状态
+        setLoading(false);
+        setInitialLoading(false);
+      }
+    }
   };
 
-  // Return the error, loading, fetchData, and initialLoading states/functions
-  return { error, loading, fetchData, initialLoading };
+  useEffect(() => {
+    return () => {
+      cancelFetch();
+      setError(null);
+      setLoading(false);
+      setInitialLoading(false);
+    };
+  }, []);
+
+  return { error, loading, fetchData, initialLoading, cancelFetch };
 };
 
 export default useFetch;

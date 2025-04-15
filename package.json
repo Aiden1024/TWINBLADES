@@ -60,7 +60,7 @@
   },
   "pnpm": {
     "patchedDependencies": {
-      "next-export-i18n": "patches/next-export-i18n.patch"
+      "next-export-i18n@2.4.3": "patches/next-export-i18n@2.4.3.patch"
     }
   }
 }

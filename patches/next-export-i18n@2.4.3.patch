@@ -1,0 +1,13 @@
+diff --git a/index.js b/index.js
+index ae4eb68a4055b109c232d595deb851ebcc1cf574..56be52cc9ffc1bc097af7f718102da59cdb2c330 100644
+--- a/index.js
++++ b/index.js
+@@ -2,7 +2,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
+ 
+ var router = require('next/router');
+ var React = require('react');
+-var I18N = require('./../../i18n/index.js');
++var I18N = require('./../../../../../i18n/index.js');
+ var Mustache = require('mustache');
+ var Link = require('next/link');
+ 

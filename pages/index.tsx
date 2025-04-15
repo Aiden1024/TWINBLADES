@@ -15,6 +15,7 @@ export default function IndexPage() {
 	return (
 		<section className="flex flex-col w-full  ">
 			<Home/>
+			<div className=" h-[100dvh] -mt-20"/>
 		</section>
 	);
 }

@@ -96,9 +96,10 @@ export default function Home() {
             <h2 className='tracking-widest font-light'>DEVELOP</h2>
           </div>
           <div className=' flex flex-row gap-8 '>
-            { theme === "light" && <Button className=' bg-default-300' onPress={() => setTheme("dark")} startContent={<RxStar  className='text-xl'/>}>仰望星辰</Button>}
-            { theme === "dark" && <Button onPress={() => setTheme("light")} startContent={<RxSun className='text-xl'/>}>追逐朝阳</Button>}
-            <Button color='primary' startContent={<RxChevronDown className='text-xl'/>}>作品成就</Button>
+            {theme === "light" ? <Button className=' bg-default-300' onPress={() => setTheme("dark")} startContent={<RxStar className='text-xl' />}>星辰</Button>
+              : <Button onPress={() => setTheme("light")} startContent={<RxSun className='text-xl' />}>日出</Button>}
+
+            <Button color='primary' startContent={<RxChevronDown className='text-xl' />}>成就</Button>
           </div>
         </div>
         <NextImage

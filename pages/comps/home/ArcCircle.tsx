@@ -28,8 +28,9 @@ const ArcCircle: React.FC<ArcCircleProps> = ({
     >
       {rotations.map((rotation, index) => (
         <div
+          
           key={index}
-          className="absolute"
+          className="absolute "
           style={{
             transform: `rotate(${rotation}deg)`
           }}
@@ -38,7 +39,8 @@ const ArcCircle: React.FC<ArcCircleProps> = ({
             classNames={{
               svg: "w-48 h-48",
               track: "stroke-transparent",
-              indicator: colorClasses[color]  // 使用颜色类
+              indicator: colorClasses[color],  // 使用颜色类
+              
             }}
             className=''
             strokeWidth={0.15}

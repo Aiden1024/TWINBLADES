@@ -32,14 +32,11 @@ export const Navbar = () => {
 			<NavDrawer isOpen={isDrawerOpen} onOpenChange={onOpenDrawerChange} />
 
 			<NavbarContent className="basis-3/5 sm:basis-full" justify="start">
-			<Button isIconOnly radius="full" variant="light" onPress={onOpenDrawer}>
-				<LuMenu className=" text-xl"/>
-			</Button>
+
 			
 				<NavbarBrand className="gap-3 max-w-fit">
 					<NextLink className="flex justify-start items-center gap-1" href="/">
-						<GiCurlyWing className=" text-lg text-danger"/>
-						<p className="font-bold text-inherit">TBDV</p>
+						<p className=" font-medium text-xl text-inherit"><span className=" text-primary">TB</span><span>dev</span></p>
 					</NextLink>
 				</NavbarBrand>
 				<div className="hidden lg:flex gap-2 justify-start ml-2">
@@ -52,7 +49,9 @@ export const Navbar = () => {
 				justify="end"
 			>
 				<NavbarItem className="hidden md:flex">
-				
+				<Button isIconOnly radius="full" variant="light" onPress={onOpenDrawer}>
+				<LuMenu className=" text-xl"/>
+			</Button>
 				</NavbarItem>
 			</NavbarContent>
 

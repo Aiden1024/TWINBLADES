@@ -126,7 +126,7 @@ const animateThemeChange = async () => {
     <section
       className="flex flex-col items-center justify-center w-full h-[100dvh] -mt-20 gap-4  md:py-4 relative overflow-hidden"
     >
-      <div className="inline-block max-w-lg text-center justify-center absolute z-0  ">
+      <div className="inline-block max-w-lg text-center justify-center absolute z-0 ">
         {circles.map((circle, index) => (
           <div
             key={index}
@@ -145,7 +145,7 @@ const animateThemeChange = async () => {
       <div className='w-full h-full flex flex-col-reverse sm:flex-row justify-center items-center md:gap-16 z-10'>
         <div className=' flex flex-col gap-4 md:gap-8 items-center md:items-end '>
 
-            <div className={`flex flex-col text-5xl md:text-6xl lg:text-7xl items-center md:items-end  full overflow-hidden ${theme === "dark" ? "backdrop-blur-sm" : "bg-background"}`}>
+            <div className={`flex flex-col text-5xl md:text-6xl lg:text-7xl items-center md:items-end overflow-hidden ${theme === "dark" ? "backdrop-blur-sm" : "bg-background"}`}>
               <motion.h2
                 className='font-medium text-primary tracking-wide translate-x-full'
                 initial={{ x: "100%" }}

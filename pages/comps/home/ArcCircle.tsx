@@ -18,7 +18,7 @@ const ArcCircle: React.FC<ArcCircleProps> = ({
   // 定义颜色映射
   const colorClasses = {
     default: 'stroke-foreground',
-    danger: 'stroke-danger-500'
+    danger: 'stroke-primary-500'
   };
 
   return (
@@ -40,6 +40,7 @@ const ArcCircle: React.FC<ArcCircleProps> = ({
               track: "stroke-transparent",
               indicator: colorClasses[color]  // 使用颜色类
             }}
+            className=''
             strokeWidth={0.15}
             value={values[index]}
           />

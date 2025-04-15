@@ -15,8 +15,6 @@ export default function IndexPage() {
 	return (
 		<section className="flex flex-col w-full  ">
 			<Home/>
-			<Home/>
-			<Home/>
 		</section>
 	);
 }

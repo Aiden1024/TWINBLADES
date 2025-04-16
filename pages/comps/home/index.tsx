@@ -101,7 +101,8 @@ const animateThemeChange = async () => {
     ) : (
       <Button
         onPress={handleThemeChange}
-        startContent={<PiSunLight className='text-xl' />}
+        className=' group'
+        startContent={<PiSunLight className='text-xl ' />}
       >
         白昼
       </Button>
@@ -145,9 +146,9 @@ const animateThemeChange = async () => {
       <div className='w-full h-full flex flex-col-reverse sm:flex-row justify-center items-center md:gap-16 z-10'>
         <div className=' flex flex-col gap-4 md:gap-8 items-center md:items-end '>
 
-            <div className={`flex flex-col text-5xl md:text-6xl lg:text-7xl items-center md:items-end overflow-hidden ${theme === "dark" ? "backdrop-blur-sm" : "bg-background"}`}>
+            <div className={`flex flex-col text-5xl md:text-6xl lg:text-7xl items-center md:items-end overflow-hidden `}>
               <motion.h2
-                className='font-medium text-primary tracking-wide translate-x-full'
+                className={`font-medium text-primary tracking-wide  ${theme === "dark" ? "backdrop-blur-sm" : "bg-background"}`}
                 initial={{ x: "100%" }}
                 whileInView={{ x: 0 }}
                 viewport={{ once: false }}
@@ -160,7 +161,7 @@ const animateThemeChange = async () => {
                 TWINBLADES
               </motion.h2>
               <motion.h2
-                className='tracking-widest font-light translate-x-full'
+                className={`tracking-widest font-light ${theme === "dark" ? "backdrop-blur-sm" : "bg-background"} `}
                 initial={{ x: "100%" }}
                 whileInView={{ x: 0 }}
                 viewport={{ once: false }}
@@ -178,7 +179,7 @@ const animateThemeChange = async () => {
           <div className=' flex flex-row gap-4 md:gap-8 '>
             <ThemeToggle />
 
-            <Button color='primary' startContent={<RxChevronDown className='text-xl' />}>成就</Button>
+            <Button color='primary' className=' group' startContent={<RxChevronDown className='text-xl -rotate-90 group-hover:rotate-0 duration-150 ease-in-out' />}>成就</Button>
           </div>
         </div>
         <div className=' max-w-72 md:max-w-[450px]'>

@@ -39,7 +39,7 @@ const About = () => {
     }, [])
 
     return (
-<div className='w-full flex flex-col items-center h-[100dvh] -mt-48 py-16 px-2'>
+<div className='w-full flex flex-col items-center h-[100dvh] -mt-20 py-16 px-2'>
     <div className='flex-1' /> {/* 顶部空白占位 */}
     
     <AnimatePresence mode="wait">

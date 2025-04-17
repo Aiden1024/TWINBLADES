@@ -32,6 +32,8 @@ const drawerMotionProps = {
 	},
 }
 
+import { usePathname } from 'next/navigation';
+
 const items = [
 	{
 		key: "home",
@@ -55,6 +57,9 @@ const items = [
 	},
 ];
 const NavDrawer = ({ isOpen = false, onOpenChange = () => { } }) => {
+
+	const pathname = usePathname();
+
 	return (
 		<div>
 			<Drawer size='xs' isOpen={isOpen} onOpenChange={onOpenChange} placement='left' motionProps={drawerMotionProps} hideCloseButton
@@ -77,7 +82,8 @@ const NavDrawer = ({ isOpen = false, onOpenChange = () => { } }) => {
 											showDivider={item.key === "docs" ? true : false}
 											key={item.key}
 											className={""}
-											color={"default"}
+											variant={ pathname.includes(item.href) ? "solid" : "flat"}
+											color={ pathname.includes(item.href) ? "primary" : "default"}
 											href={item.href}
 										>
 											{item.label}
@@ -86,12 +92,12 @@ const NavDrawer = ({ isOpen = false, onOpenChange = () => { } }) => {
 								
 								</Listbox>
 							</DrawerBody>
-							<DrawerFooter>
+							{/* <DrawerFooter>
 								<Button className=' flex justify-start' color="danger" variant="light" fullWidth onPress={onClose}>
 									Logout
 								</Button>
 
-							</DrawerFooter>
+							</DrawerFooter> */}
 						</>
 					)}
 				</DrawerContent>

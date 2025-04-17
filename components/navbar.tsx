@@ -27,7 +27,7 @@ export const Navbar = () => {
 	const { isOpen: isDrawerOpen, onOpen: onOpenDrawer, onOpenChange: onOpenDrawerChange } = useDisclosure();
 
 	return (
-		<HeroUINavbar isBlurred={true} maxWidth="full" position="sticky"  classNames={{ wrapper: "px-0 md:px-2 gap-1" }}>
+		<HeroUINavbar isBlurred={true} maxWidth="full" position="sticky" classNames={{ wrapper: "px-0 md:px-2 gap-1" }}>
 
 			<NavDrawer isOpen={isDrawerOpen} onOpenChange={onOpenDrawerChange} />
 
@@ -50,11 +50,11 @@ export const Navbar = () => {
 			</NavbarContent>
 
 			<NavbarContent
-				className="hidden sm:flex basis-1/5 sm:basis-full"
+				className="flex basis-1/5 sm:basis-full"
 				justify="end"
 
-			>	
-<NavbarItem>
+			>
+				<NavbarItem>
 					<ThemeSwitch />
 				</NavbarItem>
 				<NavbarItem className="flex">

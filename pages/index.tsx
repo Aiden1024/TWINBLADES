@@ -4,7 +4,7 @@ import { useTranslation } from "next-export-i18n";
 import Home from "./comps/home";
 import About from "./comps/about";
 import Experience from "./comps/exp";
-
+import Contact from "./comps/contact";
 export default function IndexPage() {
 	const alert = useAlert();
 
@@ -17,6 +17,7 @@ export default function IndexPage() {
 			<Home/>
 			<About/>
 			<Experience/>
+			<Contact/>
 		</section>
 	);
 }

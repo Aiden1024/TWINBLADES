@@ -55,27 +55,27 @@ export default function Home() {
     );
   };
 
-// 修改：设置所有值为0
-const setAllValuesToZero = () => {
-  setCircles(prevCircles =>
-    prevCircles.map(circle => ({
-      ...circle,
-      values: Array(circle.rotations.length).fill(0)
-    }))
-  );
-};
+  // 修改：设置所有值为0
+  const setAllValuesToZero = () => {
+    setCircles(prevCircles =>
+      prevCircles.map(circle => ({
+        ...circle,
+        values: Array(circle.rotations.length).fill(0)
+      }))
+    );
+  };
 
-// 修改：添加动画序列控制
-const animateThemeChange = async () => {
-  // 1. 先将所有值设为0
-  setAllValuesToZero();
-  
-  // 2. 等待一小段时间
-  await new Promise(resolve => setTimeout(resolve, 500));
-  
-  // 3. 生成新的随机值
-  updateCircleValues();
-};
+  // 修改：添加动画序列控制
+  const animateThemeChange = async () => {
+    // 1. 先将所有值设为0
+    setAllValuesToZero();
+
+    // 2. 等待一小段时间
+    await new Promise(resolve => setTimeout(resolve, 500));
+
+    // 3. 生成新的随机值
+    updateCircleValues();
+  };
 
   useEffect(() => {
     setMounted(true);
@@ -96,7 +96,7 @@ const animateThemeChange = async () => {
         onPress={handleThemeChange}
         startContent={<PiMoonStarsLight className='text-xl' />}
       >
-        星夜
+        深夕映繁星
       </Button>
     ) : (
       <Button
@@ -104,7 +104,7 @@ const animateThemeChange = async () => {
         className=' group'
         startContent={<PiSunLight className='text-xl ' />}
       >
-        白昼
+        晨光初映时
       </Button>
     );
   };
@@ -119,9 +119,6 @@ const animateThemeChange = async () => {
     return () => clearInterval(interval);
   }, []);
 
-  function toggleTheme() {
-    setTheme(theme === "dark" ? "light" : "dark")
-  }
 
   return (
     <section
@@ -146,49 +143,59 @@ const animateThemeChange = async () => {
       <div className='w-full h-full flex flex-col-reverse sm:flex-row justify-center items-center md:gap-16 z-10'>
         <div className=' flex flex-col gap-4 md:gap-8 items-center md:items-end '>
 
-            <div className={`flex flex-col text-5xl md:text-6xl lg:text-7xl items-center md:items-end overflow-hidden `}>
-              <motion.h2
-                className={`font-medium text-primary tracking-wide  ${theme === "dark" ? "backdrop-blur-sm" : "bg-background"}`}
-                initial={{ x: "100%" }}
-                whileInView={{ x: 0 }}
-                viewport={{ once: false }}
-                transition={{
-                  duration: 0.4,
-                  ease: "easeOut",
-                  delay: 0.1
-                }}
-              >
-                TWINBLADES
-              </motion.h2>
-              <motion.h2
-                className={`tracking-widest font-light ${theme === "dark" ? "backdrop-blur-sm" : "bg-background"} `}
-                initial={{ x: "100%" }}
-                whileInView={{ x: 0 }}
-                viewport={{ once: false }}
-                transition={{
-                  duration: 0.3,
-                  ease: "easeOut",
-                  delay: 0.3
-                }}
-              >
-                DEVELOP
-              </motion.h2>
-            </div>
+          <div className={`flex flex-col text-5xl md:text-6xl lg:text-7xl items-center md:items-end overflow-hidden `}>
+            <motion.h2
+              className={`font-medium text-primary tracking-wide  ${theme === "dark" ? "backdrop-blur-sm" : "bg-background"} px-2`}
+              initial={{ x: "100%" }}
+              whileInView={{ x: 0 }}
+              viewport={{ once: false }}
+              transition={{
+                duration: 0.4,
+                ease: "easeOut",
+                delay: 0.1
+              }}
+            >
+              TWINBLADES
+            </motion.h2>
+            <motion.h2
+              className={`tracking-widest font-light ${theme === "dark" ? "backdrop-blur-sm" : "bg-background"} px-2`}
+              initial={{ x: "100%" }}
+              whileInView={{ x: 0 }}
+              viewport={{ once: false }}
+              transition={{
+                duration: 0.3,
+                ease: "easeOut",
+                delay: 0.3
+              }}
+            >
+              DEVELOP
+            </motion.h2>
+          </div>
 
-        
+
           <div className=' flex flex-row gap-4 md:gap-8 '>
             <ThemeToggle />
 
-            <Button color='primary' className=' group' startContent={<RxChevronDown className='text-xl -rotate-90 group-hover:rotate-0 duration-150 ease-in-out' />}>成就</Button>
+            <Button color='primary' className=' group' startContent={<RxChevronDown className='text-xl -rotate-90 group-hover:rotate-0 duration-150 ease-in-out' />}>成就与作品</Button>
           </div>
         </div>
         <div className=' max-w-72 md:max-w-[450px]'>
-          <NextImage
-            className=' hidden md:flex mb-8'
-            src={require("@/pages/comps/asset/tb-logov3.svg")}
-            alt="logo"
-
-          />
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false }}
+            transition={{
+              duration: 0.5,
+              ease: "easeOut"
+            }}
+          >
+            <NextImage
+              className='hidden md:flex mb-8'
+              src={require("@/pages/comps/asset/tb-logov3.svg")}
+              alt="logo"
+            />
+          </motion.div>
+          
         </div>
       </div>
 

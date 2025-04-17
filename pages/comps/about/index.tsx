@@ -16,15 +16,16 @@ const bannerList = [
   },
   {
     id: 3,
-    title: "轻 量 共 生",
+    title: "构 简 驭 繁",
     role: "产品设计理念"
   },
   {
     id: 4,
-    title: "木 匣 吟 风",
-    role: "小提琴演奏理念"
+    title: "众 水 之 诗 ",
+    role: "音乐演奏理念"
   }
-]
+]    
+
 
 const About = () => {
     const [banNum, setBanNum] = useState(1)
@@ -38,57 +39,79 @@ const About = () => {
     }, [])
 
     return (
-        <div className='w-full flex flex-col items-center py-16 gap-8'>
-            <AnimatePresence mode="wait">
-                <motion.h2
-                    key={banNum + "title"}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -20 }}
-                    transition={{
-                        duration: 0.5,
-                        ease: "easeOut"
-                    }}
-                    className='text-3xl md:text-5xl'
-                >
-                    {bannerList[banNum - 1].title}
-                </motion.h2>
-            </AnimatePresence>
+<div className='w-full flex flex-col items-center h-[100dvh] -mt-48 py-16 px-2'>
+    <div className='flex-1' /> {/* 顶部空白占位 */}
+    
+    <AnimatePresence mode="wait">
+        <motion.h2
+            key={banNum + "title"}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{
+                duration: 0.5,
+                ease: "easeOut"
+            }}
+            className='text-5xl'
+        >
+            {bannerList[banNum - 1].title}
+        </motion.h2>
+    </AnimatePresence>
+    <AnimatePresence mode="wait">
+            <motion.p
+                key={banNum + "role"}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                transition={{
+                    duration: 0.5,
+                    ease: "easeOut",
+                    delay: 0.2
+                }}
+                className=' mt-8 text-default-500 tracking-wide'
+            >
+                {bannerList[banNum - 1].role}
+            </motion.p>
+        </AnimatePresence>
 
-            <AnimatePresence mode="wait">
-                <motion.p
-                    key={banNum + "role"}
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -20 }}
-                    transition={{
-                        duration: 0.5,
-                        ease: "easeOut",
-                        delay: 0.2
-                    }}
-                    className='self-end'
-                >
-                    {bannerList[banNum - 1].role}
-                </motion.p>
-            </AnimatePresence>
+    <div className='flex-1' /> {/* 中间空白占位 */}
 
-            <div className='flex flex-row gap-8'>
-                {bannerList.map((item) => (
-                    <Button
-                        className={`w-2 h-2 min-w-0 p-0 flex-shrink-0 transition-all duration-300 ${
-                            banNum === item.id ? 'scale-110' : ''
-                        }`}
-                        isIconOnly
-                        radius='full'
-                        size='sm'
-                        key={item.id}
-                        color={banNum === item.id ? 'primary' : 'default'}
-                        onPress={() => setBanNum(item.id)}
-                    >
-                    </Button>
-                ))}
-            </div>
+    <div className='flex flex-col gap-4'>
+        {/* <AnimatePresence mode="wait">
+            <motion.p
+                key={banNum + "role"}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                transition={{
+                    duration: 0.5,
+                    ease: "easeOut",
+                    delay: 0.2
+                }}
+                className=' text-default-500 tracking-wide'
+            >
+                {bannerList[banNum - 1].role}
+            </motion.p>
+        </AnimatePresence> */}
+        <div className='flex flex-row gap-4 mt-8'>
+            {bannerList.map((item) => (
+                <Button
+                    className={`w-1 h-1 min-w-0 p-0 flex-shrink-0 transition-all duration-300 ${
+                        banNum === item.id ? 'scale-110' : ''
+                    }`}
+                    isIconOnly
+                    radius='full'
+                    size='sm'
+                    key={item.id}
+                    color={banNum === item.id ? 'primary' : 'default'}
+                    onPress={() => setBanNum(item.id)}
+                >
+                </Button>
+            ))}
         </div>
+    </div>
+</div>
+
     )
 }
 

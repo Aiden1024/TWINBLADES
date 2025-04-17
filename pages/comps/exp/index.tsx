@@ -18,7 +18,7 @@ const Experience = () => {
 
                 <p>加拿大1位， 全球21位 - 2023</p>
                 <p>3.54/4.0 GPA</p>
-                <p>计算机科学 & 工商管理学 - 专业淘汰率(75%)</p>
+                <p>计算机科学 & 工商管理学 - 专业淘汰率(75% +)</p>
                 <p>荣誉理学士 - 高度荣誉</p>
 
                 <div className='mt-8  w-full flex flex-row justify-between items-center *:w-1/3 font-medium'>

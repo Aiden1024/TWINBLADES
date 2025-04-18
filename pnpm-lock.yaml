@@ -6,7 +6,7 @@ settings:
 
 patchedDependencies:
   next-export-i18n@2.4.3:
-    hash: eyswnaxnqf646zrgq5mmlohsum
+    hash: afcc15ca76c46cc8f59a88a073ef95eb47d87f61b4fdb3a1f7f969cac78050de
     path: patches/next-export-i18n@2.4.3.patch
 
 importers:
@@ -69,7 +69,7 @@ importers:
         version: 15.0.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       next-export-i18n:
         specifier: ^2.4.3
-        version: 2.4.3(patch_hash=eyswnaxnqf646zrgq5mmlohsum)(next@15.0.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 2.4.3(patch_hash=afcc15ca76c46cc8f59a88a073ef95eb47d87f61b4fdb3a1f7f969cac78050de)(next@15.0.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       next-themes:
         specifier: ^0.4.4
         version: 0.4.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -7743,7 +7743,7 @@ snapshots:
 
   natural-compare@1.4.0: {}
 
-  next-export-i18n@2.4.3(patch_hash=eyswnaxnqf646zrgq5mmlohsum)(next@15.0.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  next-export-i18n@2.4.3(patch_hash=afcc15ca76c46cc8f59a88a073ef95eb47d87f61b4fdb3a1f7f969cac78050de)(next@15.0.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       mustache: 4.2.0
       next: 15.0.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)

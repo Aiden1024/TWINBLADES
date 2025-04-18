@@ -31,19 +31,18 @@ const contactLinks = [
 
 const Contact = () => {
   return (
-    <div className=' flex flex-col w-full items-end my-8'>
-        <div className='w-full  flex items-center justify-between md:justify-end gap-2  max-w-xs self-center md:self-end '>
+    <div className=' flex flex-col w-full items-end my-8 px-4'>
+        <div className='w-full  flex items-center justify-end gap-2  max-w-xs self-end '>
           {contactLinks.map(({ id, icon: Icon, href, label }) => (
             <Button
               key={id}
               color='default'
-              className='group w-12 h-12'
               variant='light'
               isIconOnly
               radius='full'
               aria-label={label}
             >
-              <Icon className='text-3xl text-default-400 group-hover:text-foreground duration-200 ease-in-out'/>
+              <Icon className='text-xl text-default-400 group-hover:text-foreground duration-200 ease-in-out'/>
             </Button>
           ))}
         </div>

@@ -2,42 +2,70 @@ import { Divider } from '@heroui/react';
 import React from 'react'
 import { PiBriefcase, PiBackpack, PiGraduationCap, PiSuitcaseSimple } from "react-icons/pi";
 import { LuDot } from 'react-icons/lu';
+import { motion } from 'framer-motion';
+import { useInView } from 'framer-motion';
+import { useRef } from 'react';
 // 标题组件
 const SectionTitle = ({ icon: Icon, text }: { icon: React.ElementType, text: string }) => (
-    <h2 className='text-2xl font-semibold flex gap-2 items-center'>
+    <h2 className='text-2xl -mb-4 font-semibold flex gap-2 items-center'>
         <span><Icon /></span>
         {text}
     </h2>
 );
 
+// 创建动画详情项组件
+const AnimatedDetail = ({ detail, index }) => {
+    const ref = useRef(null);
+    const isInView = useInView(ref, { 
+      once: false,
+      margin: "0px 0px -50px 0px" // 可以调整触发动画的视图范围
+    });
+  
+    return (
+      <motion.div
+        ref={ref}
+        initial={{ x: -50, opacity: 0 }}
+        animate={isInView ? { x: 0, opacity: 1 } : { x: -50, opacity: 0 }}
+        transition={{
+          duration: 0.3,
+          delay: index * 0.1, // 每项延迟 0.1 秒
+          ease: "easeOut"
+        }}
+        className='flex gap-2 items-center'
+      >
+        <LuDot className='text-default-500' />
+        <p>{detail}</p>
+      </motion.div>
+    );
+}
 // 教育经历卡片组件
+// 修改 ExpCard 组件中的 details 渲染部分
 const ExpCard = ({
     dateRange,
     institution,
     location,
     degree,
     details
-}: {
-    dateRange: string,
-    institution: string,
-    location: string,
-    degree: string,
-    details?: string[]
 }) => (
     <>
-        <div className='mt-8 mb-2 w-full flex flex-col md:flex-row md:justify-between md:items-center md:*:w-1/3 font-medium'>
-            <span className=' w-full flex justify-start items-end'>{dateRange} <p className=' text-xs text-default-500 ml-2'>{location}</p> </span>
+        <div className='mt-6 w-full flex flex-col md:flex-row md:justify-between md:items-center md:*:w-1/3 font-medium'>
+            <span>{dateRange}</span>
             <span className='md:text-center text-xl md:text-base'>{institution}</span>
-            <span className='md:text-end text-sm text-default-400'>{degree}</span>
+            <span className='md:text-end text-sm font-normal text-default-500 md:justify-end flex items-center gap-2'>
+                {degree}
+                <Divider orientation='vertical' className='h-3' />
+                {location}
+            </span>
+        </div>
+        <div className='w-full flex items-stretch relative'>
+            <Divider className='my-2 w-full' />
         </div>
         {details && details.map((detail, index) => (
-            <div className=' flex gap-2 items-center'>
-                <LuDot className=' text-default-500'/>
-                <p key={index}>{detail}</p>
-            </div>
+            <AnimatedDetail key={index} detail={detail} index={index} />
         ))}
     </>
 );
+
 
 const Experience = () => {
     const universityDetails = [
@@ -59,12 +87,12 @@ const Experience = () => {
         "精通 React/Next.js 与 Tailwind CSS",
         "完成 5+ POC 与 4 个商业项目落地",
         "负责政府、企业、消费级 AI 应用开发",
-        "实现拖拽、连线等复杂交互功能",
+        "实现拖拽、连线、绘图、标注等复杂交互功能",
         "具备产品设计与端到端开发能力"
     ];
 
     return (
-        <div className='w-full flex flex-col py-8 px-2'>
+        <div className='w-full flex flex-col py-8 px-4 '>
             <div className='flex flex-col w-full'>
                 <SectionTitle
                     icon={PiGraduationCap}
@@ -95,7 +123,7 @@ const Experience = () => {
                     dateRange="2023.10 - 2025.07"
                     institution="微马视觉智能科技有限公司"
                     location="中国，香港"
-                    degree="前端开发/UI UX设计/产品设计"
+                    degree="前端开发 · UI UX设计 · 产品设计"
                     details={job2Details}
                 />
                 <ExpCard

@@ -36,9 +36,9 @@ export const Navbar = () => {
 
 				<NavbarBrand className="gap-3 max-w-fit ml-2">
 					<NextLink className="flex justify-start items-center gap-1" href="/">
-						<div className="group flex flex-col w-10 h-10 border text-default-500 hover:text-foreground border-default-300 hover:border-primary-500 text-sm items-center justify-center duration-150 ease-in-out ">
+						<div className="group flex flex-col w-10 h-10 border text-default-500 hover:text-foreground border-default-300 hover:border-primary-300 text-sm items-center justify-center duration-150 ease-in-out ">
 							<div className=" duration-150 ease-in-out ">
-								<p className="">T <span className=" ml-0.5">B</span></p>
+								<p className="">T <span className=" ml-[2px]">B</span></p>
 								<p className="-mt-1">D V</p>
 							</div>
 						</div>

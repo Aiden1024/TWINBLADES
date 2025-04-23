@@ -6,36 +6,45 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 // 标题组件
-const SectionTitle = ({ icon: Icon, text }: { icon: React.ElementType, text: string }) => (
-    <h2 className='text-2xl -mb-4 font-semibold flex gap-2 items-center'>
+export const SectionTitle = ({
+    icon: Icon,
+    text,
+    className = ''
+}: {
+    icon: React.ElementType;
+    text: string;
+    className?: string;
+}) => (
+    <h2 className={`text-2xl -mb-4 font-semibold flex gap-2 items-center ${className}`}>
         <span><Icon /></span>
         {text}
     </h2>
-);
+)
+
 
 // 创建动画详情项组件
 const AnimatedDetail = ({ detail, index }) => {
     const ref = useRef(null);
-    const isInView = useInView(ref, { 
-      once: false,
-      margin: "0px 0px -50px 0px" // 可以调整触发动画的视图范围
+    const isInView = useInView(ref, {
+        once: false,
+        margin: "0px 0px -50px 0px" // 可以调整触发动画的视图范围
     });
-  
+
     return (
-      <motion.div
-        ref={ref}
-        initial={{ x: -50, opacity: 0 }}
-        animate={isInView ? { x: 0, opacity: 1 } : { x: -50, opacity: 0 }}
-        transition={{
-          duration: 0.3,
-          delay: index * 0.1, // 每项延迟 0.1 秒
-          ease: "easeOut"
-        }}
-        className='flex gap-2 items-center'
-      >
-        <LuDot className='text-default-500' />
-        <p>{detail}</p>
-      </motion.div>
+        <motion.div
+            ref={ref}
+            initial={{ x: -50, opacity: 0 }}
+            animate={isInView ? { x: 0, opacity: 1 } : { x: -50, opacity: 0 }}
+            transition={{
+                duration: 0.3,
+                delay: index * 0.1, // 每项延迟 0.1 秒
+                ease: "easeOut"
+            }}
+            className='flex gap-2 items-center'
+        >
+            <LuDot className='text-default-500' />
+            <p>{detail}</p>
+        </motion.div>
     );
 }
 // 教育经历卡片组件

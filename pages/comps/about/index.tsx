@@ -97,7 +97,7 @@ const About = () => {
             {bannerList.map((item) => (
                 <Button
                     className={`w-1 h-1 min-w-0 p-0 flex-shrink-0 transition-all duration-300 ${
-                        banNum === item.id ? 'scale-110' : ''
+                        banNum === item.id ? 'w-4 ' : ''
                     }`}
                     isIconOnly
                     radius='full'

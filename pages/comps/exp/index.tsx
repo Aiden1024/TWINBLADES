@@ -1,4 +1,4 @@
-import { Divider } from '@heroui/react';
+import { Divider, Spacer } from '@heroui/react';
 import React from 'react'
 import { PiBriefcase, PiBackpack, PiGraduationCap, PiSuitcaseSimple } from "react-icons/pi";
 import { LuDot } from 'react-icons/lu';
@@ -57,7 +57,7 @@ const ExpCard = ({
     details
 }) => (
     <>
-        <div className='mt-6 w-full flex flex-col md:flex-row md:justify-between md:items-center md:*:w-1/3 font-medium'>
+        <div className=' mt-6 w-full flex flex-col md:flex-row md:justify-between md:items-center md:*:w-1/3 font-medium'>
             <span>{dateRange}</span>
             <span className='md:text-center text-xl md:text-base'>{institution}</span>
             <span className='md:text-end text-sm font-normal text-default-500 md:justify-end flex items-center gap-2'>
@@ -67,7 +67,7 @@ const ExpCard = ({
             </span>
         </div>
         <div className='w-full flex items-stretch relative'>
-            <Divider className='my-2 w-full' />
+            <Divider className='my-4 w-full' />
         </div>
         {details && details.map((detail, index) => (
             <AnimatedDetail key={index} detail={detail} index={index} />
@@ -115,6 +115,7 @@ const Experience = () => {
                     degree="本科"
                     details={universityDetails}
                 />
+                <Spacer className=' my-4 '/>
 
                 <ExpCard
                     dateRange="2016.09 - 2019.05"
@@ -135,6 +136,9 @@ const Experience = () => {
                     degree="前端开发 · UI UX设计 · 产品设计"
                     details={job2Details}
                 />
+
+                <Spacer className=' my-4 '/>
+
                 <ExpCard
                     dateRange="2023.08 - 2023.10"
                     institution="深圳广播电影电视集团华夏城视"

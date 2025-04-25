@@ -7,7 +7,7 @@ const Portfolio = () => {
   return (
     <div className=' py-16 px-4  flex flex-col'>
       <h2 className='text-4xl py-8 font-medium '>项目和作品</h2>
-      <div className=' w-full grid grid-cols-2 md:grid-cols-3 gap-8'>
+      <div className=' w-full grid gap-y-12 md:gap-y-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
           <PortCard/>
           <PortCard/>
           <PortCard/>

@@ -17,6 +17,30 @@ module.exports = {
 			animation: {
 				'spin-slow': 'spin 30s linear infinite',
 				'spin-slower': 'spin 40s linear infinite reverse',
+				'shadow-grow': 'shadowGrow 0.5s ease forwards',
+				'shadow-shrink': 'shadowGrow 0.5s ease reverse forwards'
+			},
+			keyframes: {
+				shadowGrow: {
+					'0%': {
+						boxShadow: 'none'
+					},
+					'20%': {
+						boxShadow: '5px 5px rgba(0, 98, 90, 0.4)'
+					},
+					'40%': {
+						boxShadow: '5px 5px rgba(0, 98, 90, 0.4), 10px 10px rgba(0, 98, 90, 0.3)'
+					},
+					'60%': {
+						boxShadow: '5px 5px rgba(0, 98, 90, 0.4), 10px 10px rgba(0, 98, 90, 0.3), 15px 15px rgba(0, 98, 90, 0.2)'
+					},
+					'80%': {
+						boxShadow: '5px 5px rgba(0, 98, 90, 0.4), 10px 10px rgba(0, 98, 90, 0.3), 15px 15px rgba(0, 98, 90, 0.2), 20px 20px rgba(0, 98, 90, 0.1)'
+					},
+					'100%': {
+						boxShadow: '5px 5px rgba(0, 98, 90, 0.4), 10px 10px rgba(0, 98, 90, 0.3), 15px 15px rgba(0, 98, 90, 0.2), 20px 20px rgba(0, 98, 90, 0.1), 25px 25px rgba(0, 98, 90, 0.05)'
+					}
+				}
 			}
 
 		},
@@ -49,13 +73,13 @@ module.exports = {
 						800: "#FCDCCC",    // 原 100
 						700: "#FAB299",    // 原 200
 						600: "#F07D65",    // 原 300
-						500: "#CF0808",    // 保持不变
+						500: "#FE0000",    // 保持不变
 						400: "#B20514",    // 原 600
 						300: "#95041D",    // 原 700
 						200: "#780221",    // 原 800
 						100: "#630123",    // 原 900
 						50: "#4A0125",     // 新的更深色
-						DEFAULT: "#CF0808", // 保持不变
+						DEFAULT: "#FE0000", // 保持不变
 						foreground: "#FFFFFF"
 					}
 				}

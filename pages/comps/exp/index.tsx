@@ -5,6 +5,7 @@ import { LuDot } from 'react-icons/lu';
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
+import { Link } from '@heroui/react';
 // 标题组件
 export const SectionTitle = ({
     icon: Icon,
@@ -54,13 +55,17 @@ const ExpCard = ({
     institution,
     location,
     degree,
-    details
+    details,
+    href
 }) => (
     <>
-        <div className=' mt-6 w-full flex flex-col md:flex-row md:justify-between md:items-center md:*:w-1/3 font-medium'>
-            <span>{dateRange}</span>
-            <span className='md:text-center text-xl md:text-base'>{institution}</span>
-            <span className='md:text-end text-sm font-normal text-default-500 md:justify-end flex items-center gap-2'>
+        <div className=' mt-6 w-full flex flex-col md:flex-row md:justify-between md:items-center  font-medium'>
+            <span className=' flex-1'>{dateRange}</span>
+            <a   target="_blank" rel="noopener noreferrer" href={href}  className='md:text-center text-xl md:text-base relative group   w-fit cursor-pointer duration-300 ease-in-out transition-all'>
+                <span >{institution}</span>
+                <Divider className=' bg-primary-500/70 w-0 group-hover:w-full duration-300 ease-in-out '/>
+            </a>
+            <span className=' flex-1 md:text-end text-sm font-normal text-default-500 md:justify-end flex items-center gap-2'>
                 {degree}
                 <Divider orientation='vertical' className='h-3' />
                 {location}
@@ -114,8 +119,9 @@ const Experience = () => {
                     location="加拿大，多伦多"
                     degree="本科"
                     details={universityDetails}
+                    href="https://www.utoronto.ca/"
                 />
-                <Spacer className=' my-4 '/>
+                <Spacer className=' my-4 ' />
 
                 <ExpCard
                     dateRange="2016.09 - 2019.05"
@@ -123,6 +129,7 @@ const Experience = () => {
                     location="加拿大，温哥华"
                     degree="高中"
                     details={highSchoolDetails}
+                    href="https://www.vsb.bc.ca/sir-winston-churchill"
                 />
                 <Divider className=' my-8 invisible' />
                 <SectionTitle
@@ -135,9 +142,11 @@ const Experience = () => {
                     location="中国，香港"
                     degree="前端开发 · UI UX设计 · 产品设计"
                     details={job2Details}
+                    href="https://visionmatrix.ai/"
+                    
                 />
 
-                <Spacer className=' my-4 '/>
+                <Spacer className=' my-4 ' />
 
                 <ExpCard
                     dateRange="2023.08 - 2023.10"
@@ -145,6 +154,7 @@ const Experience = () => {
                     location="中国，深圳"
                     degree="软件开发实习"
                     details={job1Details}
+                    href="https://www.szmg.com.cn/"
 
                 />
             </div>

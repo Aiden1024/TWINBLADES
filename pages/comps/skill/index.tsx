@@ -9,9 +9,11 @@ import { SiFigma, SiMaterialdesign, SiNextui, SiTailwindcss, SiAdobephotoshop } 
 import { MdOutlineFormatListBulleted, MdDesignServices } from "react-icons/md";
 import { PiFlowArrow } from "react-icons/pi";
 import { GiViolin } from "react-icons/gi";
+import { SiYoutube, SiNeteasecloudmusic } from "react-icons/si";
 import Ableton from './icons/Ableton';
 import CapCut from './icons/CapCut';
 import { IconType } from 'react-icons';
+import { VscMusic } from "react-icons/vsc";
 const skillIcons = [
     // 前端基础
     {
@@ -120,6 +122,15 @@ const musicIcons = [
         icon: GiViolin,
         name: 'Violin'
     },
+    {
+        icon: SiYoutube,
+        name: 'Youtube'
+    },
+    {
+        icon: SiNeteasecloudmusic,
+        name: 'Netease Cloud Music'
+    },
+
 
 ]
 
@@ -137,46 +148,48 @@ const SkillSection = ({ title, icon, quote, icons, isReversed = false }: SkillSe
 
     // 更新特定索引的 tooltip 状态
     const handleTooltip = (index: number, isOpen: boolean) => {
-      setOpenTooltips(prev => {
-        const newState = [...prev];
-        newState[index] = isOpen;
-        return newState;
-      });
+        setOpenTooltips(prev => {
+            const newState = [...prev];
+            newState[index] = isOpen;
+            return newState;
+        });
     };
     return (
         <div className={`flex flex-col gap-2 ${isReversed ? 'items-end text-end' : ''}`}>
             <div className=' flex flex-col w-fit'>
-                <SectionTitle
-                    icon={icon}
-                    text={title}
-                    className=' mb-0 text-4xl md:text-5xl !font-normal md:mb-0.5'
-                />
-            {/* <Divider className=' bg-primary-500 '/> */}
+                <div className=' relative'>
+                    <SectionTitle
+                        icon={icon}
+                        text={title}
+                        className=' mb-0 text-3xl md:text-4xl !font-normal md:mb-0.5'
+                    />
+                </div>
+                {/* <Divider className=' bg-primary-500 '/> */}
             </div>
 
-            <div className={`  md:text-xl flex gap-2 items-stretch mt-2 text-default-700 ${isReversed ? 'flex-row-reverse' : ''}`}>
+            {/* <div className={`  md:text-xl flex gap-2 items-stretch mt-2 text-default-700 ${isReversed ? 'flex-row-reverse' : ''}`}>
                 <Divider orientation='vertical' className='bg-primary-500 h-auto my-1 w-0.5' />
                 <p>{quote}</p>
-            </div>
+            </div> */}
             <div className='flex flex-wrap gap-4 mt-2'>
-            {icons.map(({ icon: Icon, name }, index) => (
-          <Tooltip
-            key={index}
-            content={name}
-            shadow='sm'
-            closeDelay={0}
-            isOpen={openTooltips[index]}
-          >
-            <div 
-              className='text-default-400 hover:text-foreground duration-150'
-              onMouseEnter={() => handleTooltip(index, true)}
-              onMouseLeave={() => handleTooltip(index, false)}
-              onClick={() => handleTooltip(index, !openTooltips[index])}
-            >
-              <Icon className='size-6 md:size-7' />
-            </div>
-          </Tooltip>
-        ))}
+                {icons.map(({ icon: Icon, name }, index) => (
+                    <Tooltip
+                        key={index}
+                        content={name}
+                        shadow='sm'
+                        closeDelay={0}
+                        isOpen={openTooltips[index]}
+                    >
+                        <div
+                            className='text-default-400 hover:text-foreground duration-150'
+                            onMouseEnter={() => handleTooltip(index, true)}
+                            onMouseLeave={() => handleTooltip(index, false)}
+                            onClick={() => handleTooltip(index, !openTooltips[index])}
+                        >
+                            <Icon className='size-5 md:size-6' />
+                        </div>
+                    </Tooltip>
+                ))}
             </div>
         </div>
     );
@@ -206,7 +219,7 @@ const Skill = () => {
             />
             <SkillSection
                 title="音乐"
-                icon={TfiMusic}
+                icon={VscMusic}
                 quote="仿若无因飘落的轻雨"
                 icons={musicIcons}
                 isReversed

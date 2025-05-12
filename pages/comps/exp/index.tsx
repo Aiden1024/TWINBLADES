@@ -106,7 +106,7 @@ const Experience = () => {
     ];
 
     return (
-        <div className='w-full flex flex-col py-8 px-4 '>
+        <div className='w-full flex flex-col py-8 px-4 ' id='experience'>
             <div className='flex flex-col w-full'>
                 <SectionTitle
                     icon={PiGraduationCap}

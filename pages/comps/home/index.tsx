@@ -12,9 +12,9 @@ export default function Home() {
   const [mounted, setMounted] = useState(false);
 
   // 使用 useMemo 缓存辅助函数
-  const getRandomValue = useMemo(() => (min: number, max: number) => 
+  const getRandomValue = useMemo(() => (min: number, max: number) =>
     Math.floor(Math.random() * (max - min + 1)) + min,
-  []);
+    []);
 
   // 使用 useMemo 缓存生成rotation的函数
   const generateRotations = useMemo(() => (count: number) => {
@@ -26,9 +26,9 @@ export default function Home() {
   }, [getRandomValue]);
 
   // 使用 useMemo 缓存生成values的函数
-  const generateValues = useMemo(() => (count: number) => 
+  const generateValues = useMemo(() => (count: number) =>
     Array(count).fill(0).map(() => getRandomValue(15, 22)),
-  [getRandomValue]);
+    [getRandomValue]);
 
   // 使用 useMemo 缓存初始圆环配置生成函数
   const generateInitialCircles = useMemo(() => () => {
@@ -71,34 +71,34 @@ export default function Home() {
     updateCircleValues();
   }, [setAllValuesToZero, updateCircleValues]);
 
-// 改回函数组件形式
-const ThemeToggle = () => {
-  if (!mounted) return null;
+  // 改回函数组件形式
+  const ThemeToggle = () => {
+    if (!mounted) return null;
 
-  const handleThemeChange = () => {
-    setTheme(theme === "dark" ? "light" : "dark");
-    animateThemeChange();
+    const handleThemeChange = () => {
+      setTheme(theme === "dark" ? "light" : "dark");
+      animateThemeChange();
+    };
+
+    return theme === "light" ? (
+      <Button
+        color='default'
+        className='bg-default-100'
+        onPress={handleThemeChange}
+        startContent={<PiMoonStarsLight className='text-xl' />}
+      >
+        深夕映繁星
+      </Button>
+    ) : (
+      <Button
+        onPress={handleThemeChange}
+        className=' group'
+        startContent={<PiSunLight className='text-xl ' />}
+      >
+        晨光初映时
+      </Button>
+    );
   };
-
-  return theme === "light" ? (
-    <Button
-      color='default'
-      className='bg-default-100'
-      onPress={handleThemeChange}
-      startContent={<PiMoonStarsLight className='text-xl' />}
-    >
-      深夕映繁星
-    </Button>
-  ) : (
-    <Button
-      onPress={handleThemeChange}
-      className=' group'
-      startContent={<PiSunLight className='text-xl ' />}
-    >
-      晨光初映时
-    </Button>
-  );
-};
 
 
   // 优化 useEffect
@@ -114,7 +114,7 @@ const ThemeToggle = () => {
   }, [generateInitialCircles, updateCircleValues]);
 
   // 使用 useMemo 优化圆环渲染
-  const circleElements = useMemo(() => 
+  const circleElements = useMemo(() =>
     circles.map((circle, index) => (
       <div
         key={index}
@@ -128,10 +128,11 @@ const ThemeToggle = () => {
         />
       </div>
     )),
-  [circles]);
+    [circles]);
 
   return (
     <section
+      id='home'
       className="flex flex-col items-center justify-center w-full h-[100dvh] -mt-20 gap-4  md:py-4 relative overflow-hidden"
     >
       <div className="inline-block max-w-lg text-center justify-center absolute z-0 ">
@@ -179,12 +180,16 @@ const ThemeToggle = () => {
         </div>
         <div className=' max-w-72 md:max-w-[450px]'>
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false }}
+            initial={{ y: 0, opacity: 0.9 }}
+            animate={{
+              y: [-6, 6, -6],
+              opacity: [0.9, 1, 0.9]
+            }}
             transition={{
-              duration: 0.5,
-              ease: "easeOut"
+              duration: 8,
+              repeat: Infinity,
+              repeatType: "reverse",
+              ease: "easeInOut"
             }}
           >
             <NextImage
@@ -193,7 +198,8 @@ const ThemeToggle = () => {
               alt="logo"
             />
           </motion.div>
-          
+
+
         </div>
       </div>
 

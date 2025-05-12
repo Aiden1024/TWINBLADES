@@ -155,7 +155,7 @@ const SkillSection = ({ title, icon, quote, icons, isReversed = false }: SkillSe
         });
     };
     return (
-        <div className={`flex flex-col gap-2 ${isReversed ? 'items-end text-end' : ''}`}>
+        <div className={`flex flex-col gap-2 ${isReversed ? 'items-end text-end' : ''}`} >
             <div className=' flex flex-col w-fit'>
                 <div className=' relative'>
                     <SectionTitle
@@ -196,7 +196,7 @@ const SkillSection = ({ title, icon, quote, icons, isReversed = false }: SkillSe
 };
 const Skill = () => {
     return (
-        <div className='px-4 py-16 flex flex-col gap-16'>
+        <div className='px-4 py-16 flex flex-col gap-16 min-h-screen' id='expertise'>
             <SkillSection
                 title="开发"
                 icon={RxCode}

@@ -63,6 +63,19 @@ module.exports = {
 						900: "#630123",
 						DEFAULT: "#CF0808",
 						foreground: "#FFFFFF"
+					},
+					default: {
+						"100": "#F2F8FA",
+						"200": "#E6F0F6",
+						"300": "#CFDCE5",
+						"400": "#B3C1CC",
+						"500": "#8F9DAB",
+						"600": "#687B93",
+						"700": "#485C7B",
+						"800": "#2D4063",
+						"900": "#1B2B52",
+						"DEFAULT": "#CFDCE5",
+						"foreground": "#000000"
 					}
 				}
 			},
@@ -81,6 +94,9 @@ module.exports = {
 						50: "#4A0125",     // 新的更深色
 						DEFAULT: "#FE0000", // 保持不变
 						foreground: "#FFFFFF"
+					},
+					default: {
+						500: "#71717a"
 					}
 				}
 			}

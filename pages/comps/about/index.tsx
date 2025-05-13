@@ -95,18 +95,16 @@ const About = () => {
         </AnimatePresence> */}
         <div className='flex flex-row gap-4 mt-8'>
             {bannerList.map((item) => (
-                <Button
-                    className={`w-1 h-1 min-w-0 p-0 flex-shrink-0 transition-all duration-300 ${
-                        banNum === item.id ? 'w-4 ' : ''
+                <div
+                    className={`w-1 h-1 bg-default rounded-full cursor-pointer  p-0 flex-shrink-0 duration-500 ease-in-out ${
+                        banNum === item.id ? 'w-4 bg-primary  ' : ''
                     }`}
-                    isIconOnly
-                    radius='full'
-                    size='sm'
                     key={item.id}
                     color={banNum === item.id ? 'primary' : 'default'}
-                    onPress={() => setBanNum(item.id)}
+                    onClick={() => setBanNum(item.id)}
                 >
-                </Button>
+                    
+                </div>
             ))}
         </div>
     </div>

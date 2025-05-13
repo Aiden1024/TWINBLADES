@@ -33,64 +33,51 @@ const drawerMotionProps = {
 }
 
 import { usePathname } from 'next/navigation';
-
-const items = [
-	{
-		key: "home",
-		label: "Home",
-		href: "/",
-	},
-	{
-		key: "about",
-		label: "About",
-		href: "/about",
-	},
-	{
-		key: "docs",
-		label: "Docs",
-		href: "/docs",
-	},
-	{
-		key: "setting",
-		label: "Setting",
-		href: "/setting",
-	},
-];
-const NavDrawer = ({ isOpen = false, onOpenChange = () => { } }) => {
+import { Link as ScrollLink } from 'react-scroll';
+import { PiListLight, PiCaretDoubleLeftLight } from "react-icons/pi";
+const NavDrawer = ({ isOpen = false, onOpenChange = () => { }, navItems = [] }) => {
 
 	const pathname = usePathname();
 
 	return (
-		<div>
+		<div >
 			<Drawer size='xs' isOpen={isOpen} onOpenChange={onOpenChange} placement='left' motionProps={drawerMotionProps} hideCloseButton
-				radius='none' >
+				radius='none'  >
 				<DrawerContent>
 					{(onClose) => (
 						<>
 							<DrawerHeader className="flex gap-1 items-center pt-3 pb-0">
 								<Button isIconOnly radius="full" variant="light" onPress={onClose}>
-									<LuChevronsLeft className=" text-xl" />
+									<PiCaretDoubleLeftLight className=" text-2xl" />
 								</Button>
 							</DrawerHeader>
 
 							<DrawerBody>
-								<Listbox aria-label="Dynamic Actions" variant='flat' className=' ' items={items}>
-									{(item) => (
-										<ListboxItem
-											
-									
-											showDivider={item.key === "docs" ? true : false}
+								<div className="flex flex-col gap-1 ">
+									{navItems.map((item) => (
+										<ScrollLink
 											key={item.key}
-											className={""}
-											variant={ pathname.includes(item.href) ? "solid" : "flat"}
-											color={ pathname.includes(item.href) ? "primary" : "default"}
-											href={item.href}
+											className="cursor-pointer font-light tracking-wide text-lg py-1 px-2 
+                 duration-150 ease-in-out text-default-600 
+                 hover:text-primary hover:bg-default-100
+                 data-[active=true]:text-primary-500"
+											to={item.key}
+											duration={800}
+											smooth="easeInOutCubic"
+											offset={-48}
+											spy={true}
+											onClick={onClose}
+											activeClass="!text-primary-500"
 										>
 											{item.label}
-										</ListboxItem>
-									)}
-								
-								</Listbox>
+											<div className="absolute bottom-0 left-0 h-[1px] bg-primary-500 transition-all duration-300 ease-in-out 
+                         w-0 group-hover:w-full
+                         [.active_&]:w-full"
+											/>
+										</ScrollLink>
+									))}
+								</div>
+
 							</DrawerBody>
 							{/* <DrawerFooter>
 								<Button className=' flex justify-start' color="danger" variant="light" fullWidth onPress={onClose}>

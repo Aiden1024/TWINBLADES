@@ -1,7 +1,7 @@
 import { FC, useState, useEffect } from "react";
 import { Button } from "@heroui/button";
 import { useTheme } from "next-themes";
-import { PiMoonStars, PiSun} from "react-icons/pi";
+import { PiMoonStarsLight, PiSunLight, PiStarFourThin, PiStarFour } from "react-icons/pi";
 
 export interface ThemeSwitchProps {
   className?: string;
@@ -27,7 +27,7 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({
       className={`${className}`}
       onPress={() => setTheme('dark')}
     >
-      <PiMoonStars className='text-xl' />
+      <PiMoonStarsLight className='text-2xl' />
     </Button>
   ) : (
     <Button
@@ -38,7 +38,7 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({
       className={`group ${className}`}
 
     >
-      <PiSun className='text-xl' />
+      <PiSunLight className='text-2xl' />
     </Button>
   );
 };

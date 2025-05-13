@@ -6,6 +6,7 @@ import { useTheme } from 'next-themes';
 import { RxMoon, RxSun, RxChevronDown, RxStar } from "react-icons/rx";
 import { PiMoonStarsLight, PiSunLight } from "react-icons/pi";
 import { motion } from "framer-motion";
+import { scroller } from 'react-scroll';
 export default function Home() {
   const [circles, setCircles] = useState<Array<any>>([]);
   const { theme, setTheme } = useTheme()
@@ -175,7 +176,22 @@ export default function Home() {
           <div className=' flex flex-row gap-4 md:gap-8 '>
             <ThemeToggle />
 
-            <Button color='primary' className=' group' startContent={<RxChevronDown className='text-xl -rotate-90 group-hover:rotate-0 duration-150 ease-in-out' />}>成就与作品</Button>
+            <Button
+              color='primary'
+              className='group'
+              startContent={
+                <RxChevronDown className='text-xl -rotate-90 group-hover:rotate-0 duration-150 ease-in-out' />
+              }
+              onPress={() => {
+                scroller.scrollTo('projects', {
+                  duration: 800,
+                  smooth: true,
+                  offset: -50,
+                });
+              }}
+            >
+              成就与作品
+            </Button>
           </div>
         </div>
         <div className=' max-w-72 md:max-w-[450px]'>

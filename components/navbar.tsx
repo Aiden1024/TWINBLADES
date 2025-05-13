@@ -18,12 +18,13 @@ import { ThemeSwitch } from "@/components/theme-switch";
 
 import { GiCurlyWing } from "react-icons/gi";
 import { LuMenu } from "react-icons/lu";
+import { PiListLight, PiCaretDoubleLeftLight } from "react-icons/pi";
 
 import { useDisclosure } from "@heroui/react";
 import NavDrawer from "./navDrawer";
 
 import { Link as ScrollLink } from 'react-scroll';
-
+import LangDropdown from "./langDropdown";
 export const Navbar = () => {
 	const navItems = [
 		{
@@ -59,14 +60,14 @@ export const Navbar = () => {
 	return (
 		<HeroUINavbar isBlurred={true} maxWidth="full" position="sticky" classNames={{ wrapper: "px-0 md:px-2 gap-1" }}>
 
-			<NavDrawer isOpen={isDrawerOpen} onOpenChange={onOpenDrawerChange} />
+			<NavDrawer isOpen={isDrawerOpen} onOpenChange={onOpenDrawerChange} navItems={navItems} />
 
 			<NavbarContent className="basis-3/5 sm:basis-full" justify="start">
 
 
 				<NavbarBrand className="gap-3 max-w-fit ml-2">
 					<ScrollLink className="flex cursor-pointer justify-start items-center gap-1" to="home" duration={800}
-									smooth="easeInOutCubic">
+						smooth="easeInOutCubic">
 						<div className="group flex flex-col w-10 h-10 border text-default-500 hover:text-foreground border-default-300 hover:border-primary-300 text-sm items-center justify-center duration-150 ease-in-out ">
 							<div className=" duration-150 ease-in-out ">
 								<p className="">T <span className=" ml-[2px]">B</span></p>
@@ -103,17 +104,21 @@ export const Navbar = () => {
 			</NavbarContent>
 
 			<NavbarContent
-				className="flex basis-1/5 sm:basis-full"
+				className="flex basis-1/5 sm:basis-full mr-2"
 				justify="end"
 
 			>
 				<NavbarItem>
 					<ThemeSwitch />
 				</NavbarItem>
-				<NavbarItem className="flex">
 
-					<Button isIconOnly radius="full" variant="light" onPress={onOpenDrawer}>
-						<LuMenu className=" text-xl" />
+				<NavbarItem>
+					<LangDropdown />
+				</NavbarItem>
+				<NavbarItem className="flex  md:hidden">
+
+					<Button isIconOnly radius="full" variant="light" onPress={onOpenDrawer} className=''>
+						<PiListLight className=" text-2xl" />
 					</Button>
 				</NavbarItem>
 			</NavbarContent>

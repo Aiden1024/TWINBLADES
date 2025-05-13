@@ -17,3 +17,8 @@
 .text-subheader {
   @apply text-small text-default-500 md:text-medium;
 }
+
+*:focus-visible {
+  outline: 2px solid #fe0000 !important;
+  outline-offset: 2px !important;
+}

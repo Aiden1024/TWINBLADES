@@ -181,7 +181,7 @@ const SkillSection = ({ title, icon, quote, icons, isReversed = false }: SkillSe
                         isOpen={openTooltips[index]}
                     >
                         <div
-                            className='text-default-400 hover:text-foreground duration-150'
+                            className='text-default-500 hover:text-foreground duration-150'
                             onMouseEnter={() => handleTooltip(index, true)}
                             onMouseLeave={() => handleTooltip(index, false)}
                             onClick={() => handleTooltip(index, !openTooltips[index])}
@@ -196,7 +196,7 @@ const SkillSection = ({ title, icon, quote, icons, isReversed = false }: SkillSe
 };
 const Skill = () => {
     return (
-        <div className='px-4 py-16 flex flex-col gap-16 min-h-screen' id='expertise'>
+        <div className='px-4 py-8 flex flex-col gap-16 min-h-screen' id='expertise'>
             <SkillSection
                 title="开发"
                 icon={RxCode}

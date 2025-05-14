@@ -65,7 +65,7 @@ const ExpCard = ({
                 <span >{institution}</span>
                 <Divider className=' bg-primary-500/70 w-0 group-hover:w-full duration-300 ease-in-out '/>
             </a>
-            <span className=' flex-1 md:text-end text-sm font-normal text-default-500 md:justify-end flex items-center gap-2'>
+            <span className=' flex-1 md:text-end text-sm font-normal text-default-600 md:justify-end flex items-center gap-2'>
                 {degree}
                 <Divider orientation='vertical' className='h-3' />
                 {location}

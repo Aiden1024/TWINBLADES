@@ -18,7 +18,7 @@ import { ThemeSwitch } from "@/components/theme-switch";
 
 import { GiCurlyWing } from "react-icons/gi";
 import { LuMenu } from "react-icons/lu";
-import { PiListLight, PiCaretDoubleLeftLight } from "react-icons/pi";
+import { PiListLight, PiCaretDoubleLeftLight, PiLinuxLogoFill, PiList  } from "react-icons/pi";
 
 import { useDisclosure } from "@heroui/react";
 import NavDrawer from "./navDrawer";
@@ -118,7 +118,7 @@ export const Navbar = () => {
 				<NavbarItem className="flex  md:hidden">
 
 					<Button isIconOnly radius="full" variant="light" onPress={onOpenDrawer} className=''>
-						<PiListLight className=" text-2xl" />
+						<PiList className=" text-2xl" />
 					</Button>
 				</NavbarItem>
 			</NavbarContent>

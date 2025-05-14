@@ -11,7 +11,7 @@ const LangDropdown = () => {
                 <Button isIconOnly variant="light" radius="full" className=" "><PiGlobeLight className=" text-2xl" /></Button>
             </DropdownTrigger>
             <DropdownMenu variant="light" aria-label="Link Actions" color="danger"  >
-                <DropdownItem key="en" textValue="ENGLISH">
+                <DropdownItem key="en" textValue="ENGLISH" className=' duration-150 ease-in-out hover:bg-default-100'>
                     <LanguageSwitcher lang="en" >
                         <h2 className=" px-8">ENGLISH</h2>
                     </LanguageSwitcher>
@@ -21,7 +21,7 @@ const LangDropdown = () => {
 
 
 
-                <DropdownItem key="cn" textValue="简体中文"  >
+                <DropdownItem key="cn" textValue="简体中文" className=' duration-150 ease-in-out hover:bg-default-100'  >
                     <LanguageSwitcher lang="cn">
                         <h2 className="px-8 ">简体中文</h2>
                     </LanguageSwitcher>

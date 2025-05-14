@@ -50,6 +50,8 @@ module.exports = {
 		themes: {
 			light: {
 				colors: {
+					background:"#FEFEFE",
+					focus:"#CF0808",
 					primary: {
 						50: "#FEE8E4",
 						100: "#FCDCCC",
@@ -62,7 +64,7 @@ module.exports = {
 						800: "#780221",
 						900: "#630123",
 						DEFAULT: "#CF0808",
-						foreground: "#FFFFFF"
+						foreground: "#FEFEFE"
 					},
 					default: {
 						"100": "#F2F8FA",
@@ -75,12 +77,13 @@ module.exports = {
 						"800": "#2D4063",
 						"900": "#1B2B52",
 						"DEFAULT": "#CFDCE5",
-						"foreground": "#000000"
+						"foreground": "#485C7B"
 					}
 				}
 			},
 			dark: {
 				colors: {
+					focus:"#FE0000",
 					primary: {
 						900: "#FEE8E4",    // 原 50
 						800: "#FCDCCC",    // 原 100

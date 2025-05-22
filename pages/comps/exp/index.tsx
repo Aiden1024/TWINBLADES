@@ -140,7 +140,7 @@ const Experience = () => {
                     dateRange="2023.10 - 2025.07"
                     institution="微马视觉智能科技有限公司"
                     location="中国，香港"
-                    degree="前端开发 · UI UX设计 · 产品设计"
+                    degree="前端 · UI · 产品"
                     details={job2Details}
                     href="https://visionmatrix.ai/"
                     

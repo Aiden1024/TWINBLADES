@@ -134,7 +134,7 @@ export default function Home() {
   return (
     <section
       id='home'
-      className="flex flex-col items-center justify-center w-full h-[100dvh] -mt-20 gap-4  md:py-4 relative overflow-hidden"
+      className="flex flex-col items-center justify-center w-full h-[100vh] -mt-20 gap-4  md:py-4 relative overflow-hidden"
     >
       <div className="inline-block max-w-lg text-center justify-center absolute z-0 ">
         {circleElements}
@@ -190,7 +190,7 @@ export default function Home() {
                 });
               }}
             >
-              成就与作品
+              项目与作品
             </Button>
           </div>
         </div>

@@ -1,4 +1,6 @@
 import React from 'react'
+import MVSEIcon from '../icons/MVSEicon';
+
 
 const MVSE = () => {
     return (
@@ -8,10 +10,20 @@ const MVSE = () => {
     )
 }
 
+const StyledText = ({ text }) => (
+    <p><span className='font-medium text-2xl  '>{text[0]}</span>{text.slice(1)}</p>
+);
+
+
+
+
 export const MVSECover = () => {
     return (
         <div className=' w-full h-full items-center justify-center flex '>
-            M.V.S.E
+            <div className=' flex flex-col items-start text-lg w-full h-full p-8'>
+                <MVSEIcon className=' w-full h-full'/>
+
+            </div>
         </div>
     )
 }

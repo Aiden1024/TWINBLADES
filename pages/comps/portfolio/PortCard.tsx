@@ -42,7 +42,7 @@ const PortCard = ({ title = "Default Title", cover = null, tags = ["Default Tag"
                 <CardBody className='  duration-150 flex-col gap-4'>
                     <div className=' flex flex-col my-2 gap-1'>
 
-                        <h2 className='  duration-300  text-header text-lg'>{title}</h2>
+                        <h2 className='  duration-300  text-header text-lg line-clamp-1'>{title}</h2>
                         <div className='flex flex-wrap gap-2'>
                             {tags && Array.isArray(tags) && tags.map((tag, index) => (
                                 <Chip key={index} size='sm' radius='none' variant='flat'>

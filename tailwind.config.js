@@ -18,7 +18,8 @@ module.exports = {
 				'spin-slow': 'spin 30s linear infinite',
 				'spin-slower': 'spin 40s linear infinite reverse',
 				'shadow-grow': 'shadowGrow 0.5s ease forwards',
-				'shadow-shrink': 'shadowGrow 0.5s ease reverse forwards'
+				'shadow-shrink': 'shadowGrow 0.5s ease reverse forwards',
+				soundwave: 'soundwave 1.5s ease-in-out infinite',
 			},
 			keyframes: {
 				shadowGrow: {
@@ -40,7 +41,12 @@ module.exports = {
 					'100%': {
 						boxShadow: '5px 5px rgba(0, 98, 90, 0.4), 10px 10px rgba(0, 98, 90, 0.3), 15px 15px rgba(0, 98, 90, 0.2), 20px 20px rgba(0, 98, 90, 0.1), 25px 25px rgba(0, 98, 90, 0.05)'
 					}
-				}
+				},
+				soundwave: {
+					'0%, 100%': { height: '25px' },
+					'50%': { height: '100px' },
+				},
+
 			}
 
 		},
@@ -50,8 +56,8 @@ module.exports = {
 		themes: {
 			light: {
 				colors: {
-					background:"#FEFEFE",
-					focus:"#CF0808",
+					background: "#FEFEFE",
+					focus: "#CF0808",
 					primary: {
 						50: "#FEE8E4",
 						100: "#FCDCCC",
@@ -78,12 +84,26 @@ module.exports = {
 						"900": "#1B2B52",
 						"DEFAULT": "#CFDCE5",
 						"foreground": "#485C7B"
+					},
+					secondary: {
+						50: "#e6f1fe",    // 最浅
+						100: "#cce3fd",
+						200: "#99c7fb",
+						300: "#66aaf9",
+						400: "#338ef7",
+						500: "#006FEE",    // 亮蓝色
+						600: "#005bc4",
+						700: "#004493",
+						800: "#002e62",
+						900: "#001731",
+						"DEFAULT": "#006FEE",   // 最深
 					}
+
 				}
 			},
 			dark: {
 				colors: {
-					focus:"#FE0000",
+					focus: "#FE0000",
 					primary: {
 						900: "#FEE8E4",    // 原 50
 						800: "#FCDCCC",    // 原 100
@@ -100,7 +120,22 @@ module.exports = {
 					},
 					default: {
 						500: "#71717a"
+					},
+					secondary: {
+						50: "#001731",
+						100: "#002e62",
+						200: "#004493",
+						300: "#005bc4",
+						400: "#006FEE",
+						500: "#338ef7",
+						600: "#66aaf9",
+						700: "#99c7fb",
+						800: "#cce3fd",
+						900: "#e6f1fe",
+						DEFAULT: "#338ef7", // 保持不变
+						foreground: "#FFFFFF"
 					}
+
 				}
 			}
 

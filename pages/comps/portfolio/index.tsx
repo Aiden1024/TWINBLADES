@@ -3,6 +3,10 @@ import PortCard from './PortCard'
 import { TBTPCover, TBTPContent, TBTPdesc } from './projects/TBTemplate'
 import {RPCover, RPContent, RPdesc} from './projects/HKITCRP'
 import { SLPv4Cover, SLPv4Content, SLPv4desc} from './projects/SLPv4'
+import { MVSECover, MVSEContent, MVSEdesc} from './projects/MVSE'
+import { SPWZCover, SPWZContent, SPWZdesc} from './projects/SPWZ'
+import { AIBoxCover, AIBoxContent, AIBoxdesc} from './projects/AIBox'
+
 import { ScrollShadow } from '@heroui/react'
 
 const Portfolio = () => {
@@ -11,12 +15,13 @@ const Portfolio = () => {
 
 
     { title: "TWINBLADES 工具箱", cover: <TBTPCover/>, tags: ["前端开发", "UI/UX设计"], desc: TBTPdesc, date: "2025.01 - Current" },
-    { title: "香港ITC研究人才", cover: <RPCover/>, tags: ["2024高才"], desc: "Top Talent", date: "0000.00.00 - 0000.00.00" },
+    { title: "香港ITC研究人才", cover: <RPCover/>, tags: ["2024高才", "HKSTP人才"], desc: "Top Talent", date: "0000.00.00 - 0000.00.00" },
     { title: "AI自学习平台 v4", cover: <SLPv4Cover/>, tags: ["前端开发", "UI/UX设计", "产品设计"], desc: SLPv4desc, date: "0000.00.00 - 0000.00.00" },
+    { title: "AI Box v2", cover: <AIBoxCover/>, tags: ["前端开发", "UX设计"], desc: AIBoxdesc, date: "0000.00.00 - 0000.00.00" },
 
-    { title: "Default Title", cover: null, tags: ["Default Tag"], desc: "Default Description", date: "0000.00.00 - 0000.00.00" },
-    { title: "Default Title", cover: null, tags: ["Default Tag"], desc: "Default Description", date: "0000.00.00 - 0000.00.00" },
-    { title: "Default Title", cover: null, tags: ["Default Tag"], desc: "Default Description", date: "0000.00.00 - 0000.00.00" },
+    { title: "多模态视频搜索引擎", cover: <MVSECover/>, tags: ["前端开发", "UI/UX设计"], desc: MVSEdesc, date: "0000.00.00 - 0000.00.00" },
+    { title: "Speech Wizard", cover: <SPWZCover/>, tags: ["前端开发"], desc: SPWZdesc, date: "0000.00.00 - 0000.00.00" },
+
 
   ]
 

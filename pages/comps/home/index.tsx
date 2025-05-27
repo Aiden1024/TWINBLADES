@@ -7,6 +7,8 @@ import { RxMoon, RxSun, RxChevronDown, RxStar } from "react-icons/rx";
 import { PiMoonStarsLight, PiSunLight } from "react-icons/pi";
 import { motion } from "framer-motion";
 import { scroller } from 'react-scroll';
+
+import TbLogo from './TBicon';
 export default function Home() {
   const [circles, setCircles] = useState<Array<any>>([]);
   const { theme, setTheme } = useTheme()
@@ -194,12 +196,12 @@ export default function Home() {
             </Button>
           </div>
         </div>
-        <div className=' max-w-72 md:max-w-[450px]'>
+        <div className=' max-w-72 md:max-w-[450px] md:w-full'>
           <motion.div
-            initial={{ y: 0, opacity: 0.9 }}
+            initial={{ y: 0,}}
             animate={{
               y: [-6, 6, -6],
-              opacity: [0.9, 1, 0.9]
+
             }}
             transition={{
               duration: 8,
@@ -208,11 +210,12 @@ export default function Home() {
               ease: "easeInOut"
             }}
           >
-            <NextImage
+            {/* <NextImage
               className='hidden md:flex mb-8'
               src={require("@/pages/comps/asset/tb-logov3.svg")}
               alt="logo"
-            />
+            /> */}
+            <TbLogo className='hidden md:flex mb-8 w-full' />
           </motion.div>
 
 

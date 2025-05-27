@@ -1,3 +1,4 @@
+import { Divider } from '@heroui/react'
 import React from 'react'
 
 const TBTemplate = () => {
@@ -13,7 +14,7 @@ export const TBTPCover = () => {
         <div className='w-full h-full flex justify-center'> {/* 添加 flex 和 justify-center */}
             <div className='flex h-full flex-col w-fit justify-center items-stretch text-3xl font-medium'>
                 <h2 className='tracking-widest inline-block'>TWIN<span className=' '>B</span>LADES</h2>
-                <div className='flex flex-row justify-between w-auto font-light text-xl '>
+                <div className='flex flex-row justify-between w-auto font-light text-xl text-primary '>
                     <span>T</span>
                     <span>E</span>
                     <span>M</span>

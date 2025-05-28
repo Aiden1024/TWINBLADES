@@ -34,8 +34,8 @@ const PortCard = ({ title = "Default Title", cover = null, tags = ["Default Tag"
                transition-all duration-150 ease-out
                translate-x-0 translate-y-0
                hover:-translate-x-1 hover:-translate-y-1 w-full '   isPressable onPress={onOpen}>
-                <CardHeader className=' p-0 w-full border-b border-default-200'>
-                    <div className=' aspect-video w-full bg-default-100'>
+                <CardHeader className=' p-0 w-full border-b border-default-200 '>
+                    <div className=' aspect-video w-full bg-default-100 '>
                         {cover}
                     </div>
                 </CardHeader>

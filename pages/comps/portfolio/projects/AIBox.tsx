@@ -16,8 +16,8 @@ export const AIBoxCover = () => {
           }}
           transition={{
             type: "spring",
-            stiffness: 10,
-            damping: 5,
+            stiffness: 20,
+            damping: 4,
             repeat: Infinity,
             duration: 0.5, // 每次旋转动画持续1秒
             times: [0, 0.25, 0.25, 0.5, 0.5, 0.75, 0.75, 1], // 时间分配

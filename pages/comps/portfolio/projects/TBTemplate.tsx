@@ -1,7 +1,6 @@
 import { Divider } from "@heroui/react";
 import { motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
-
 const TBTemplate = () => {
   return <div>TBTemplate</div>;
 };

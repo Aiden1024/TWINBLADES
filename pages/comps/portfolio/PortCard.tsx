@@ -10,13 +10,14 @@ import {
     useDisclosure,
 } from "@heroui/react";
 import { RxCross1 } from 'react-icons/rx';
-const PortCard = ({ title = "Default Title", cover = null, tags = ["Default Tag"], desc = "Default Description", date="0000.00.00 - 0000.00.00"},) => {
+const PortCard = ({ title = "Default Title", cover = null, tags = ["Default Tag"], desc = "Default Description", date = "0000.00.00 - 0000.00.00",
+    content = <div className=' p-4 h-72'>Default Content</div> }) => {
 
     const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
     return (
         <div className=' relative group'>
-                        <div className="absolute inset-0 bg-default-500/15 border border-default-200 
+            <div className="absolute inset-0 bg-default-500/15 border border-default-200 
                   transition-all duration-150 ease-out delay-75
                   translate-x-0 translate-y-0
                   group-hover:translate-x-3 group-hover:translate-y-3"
@@ -60,6 +61,7 @@ const PortCard = ({ title = "Default Title", cover = null, tags = ["Default Tag"
 
 
             <Modal
+                size='4xl'
                 closeButton={<Button color="default" isIconOnly size='sm' variant='light' className="group"><RxCross1 className="size-8 group-hover:rotate-90 duration-150 easeInOut" /></Button>}
                 backdrop="opaque"
                 isOpen={isOpen}
@@ -85,36 +87,13 @@ const PortCard = ({ title = "Default Title", cover = null, tags = ["Default Tag"
                 }}
                 onOpenChange={onOpenChange}
             >
+                <ModalHeader>{title}</ModalHeader>
                 <ModalContent>
                     {(onClose) => (
-                        <>
-                            <ModalHeader className="flex flex-col gap-1">Modal Title</ModalHeader>
-                            <ModalBody>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pulvinar risus non
-                                    risus hendrerit venenatis. Pellentesque sit amet hendrerit risus, sed porttitor
-                                    quam.
-                                </p>
-                                <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pulvinar risus non
-                                    risus hendrerit venenatis. Pellentesque sit amet hendrerit risus, sed porttitor
-                                    quam.
-                                </p>
-                                <p>
-                                    Magna exercitation reprehenderit magna aute tempor cupidatat consequat elit dolor
-                                    adipisicing. Mollit dolor eiusmod sunt ex incididunt cillum quis. Velit duis sit
-                                    officia eiusmod Lorem aliqua enim laboris do dolor eiusmod. Et mollit incididunt
-                                    nisi consectetur esse laborum eiusmod pariatur proident Lorem eiusmod et. Culpa
-                                    deserunt nostrud ad veniam.
-                                </p>
-                            </ModalBody>
-                            <ModalFooter>
-                                <Button color="default" variant="light" className="text-default-500" onPress={onClose}>
-                                    Close
-                                </Button>
+                        <div className=' p-4'>
+                            {content}
 
-                            </ModalFooter>
-                        </>
+                        </div>
                     )}
                 </ModalContent>
             </Modal>

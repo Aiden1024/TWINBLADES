@@ -18,7 +18,7 @@ import { ThemeSwitch } from "@/components/theme-switch";
 
 import { GiCurlyWing } from "react-icons/gi";
 import { LuMenu } from "react-icons/lu";
-import { PiListLight, PiCaretDoubleLeftLight, PiLinuxLogoFill, PiList  } from "react-icons/pi";
+import { PiListLight, PiCaretDoubleLeftLight, PiLinuxLogoFill, PiList, PiEnvelope, PiEnvelopeThin, PiEnvelopeDuotone, PiEnvelopeLight } from "react-icons/pi";
 
 import { useDisclosure } from "@heroui/react";
 import NavDrawer from "./navDrawer";
@@ -108,6 +108,23 @@ export const Navbar = () => {
 				justify="end"
 
 			>
+
+
+				<NavbarItem>
+					<Button
+						isIconOnly
+						variant="light"
+						radius="full"
+						onPress={() => {
+							const contactSection = document.getElementById("contact");
+							if (contactSection) {
+								contactSection.scrollIntoView({ behavior: "smooth" });
+							}
+						}}
+					>
+						<PiEnvelopeLight className="text-2xl" />
+					</Button>
+				</NavbarItem>
 				<NavbarItem>
 					<ThemeSwitch />
 				</NavbarItem>
@@ -115,6 +132,9 @@ export const Navbar = () => {
 				<NavbarItem>
 					<LangDropdown />
 				</NavbarItem>
+
+
+
 				<NavbarItem className="flex  md:hidden">
 
 					<Button isIconOnly radius="full" variant="light" onPress={onOpenDrawer} className=''>

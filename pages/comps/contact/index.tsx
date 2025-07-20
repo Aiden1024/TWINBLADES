@@ -1,6 +1,7 @@
 import React from 'react'
 import { BsFillPersonLinesFill, BsWechat, BsFillEnvelopeFill, BsGithub } from "react-icons/bs";
 import { Button } from '@heroui/button';
+import { Divider } from '@heroui/react';
 
 const contactLinks = [
   {
@@ -31,22 +32,23 @@ const contactLinks = [
 
 const Contact = () => {
   return (
-    <div className=' flex flex-col w-full items-end my-8 px-4'>
-        <div className='w-full  flex items-center justify-end gap-2  max-w-xs self-end '>
-          {contactLinks.map(({ id, icon: Icon, href, label }) => (
-            <Button
-              key={id}
-              color='default'
-              variant='light'
-              isIconOnly
-              radius='full'
-              aria-label={label}
-            >
-              <Icon className='text-xl text-default-400 group-hover:text-foreground duration-200 ease-in-out'/>
-            </Button>
-          ))}
-        </div>
-        <p className=' text-default-400 text-sm'>2025 TWINBLADES DEVELOP</p>
+    <div id='contact' className=' flex flex-col w-full items-center my-16 px-4 itemc'>
+
+      <div className='  flex items-center gap-2  max-w-xs '>
+        {contactLinks.map(({ id, icon: Icon, href, label }) => (
+          <Button
+            key={id}
+            color='default'
+            variant='light'
+            isIconOnly
+            radius='full'
+            aria-label={label}
+          >
+            <Icon className='text-xl text-default-400 group-hover:text-foreground duration-200 ease-in-out' />
+          </Button>
+        ))}
+      </div>
+      <p className=' text-default-400 text-sm'>2025 TWINBLADES DEVELOP</p>
     </div >
   )
 }

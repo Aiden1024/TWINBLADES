@@ -171,7 +171,7 @@ const SkillSection = ({ title, icon, quote, icons, isReversed = false }: SkillSe
                 <Divider orientation='vertical' className='bg-primary-500 h-auto my-1 w-0.5' />
                 <p>{quote}</p>
             </div> */}
-            <div className='flex flex-wrap gap-4 mt-2'>
+            <div className='flex flex-wrap gap-4 mt-4'>
                 {icons.map(({ icon: Icon, name }, index) => (
                     <Tooltip
                         key={index}
@@ -186,7 +186,7 @@ const SkillSection = ({ title, icon, quote, icons, isReversed = false }: SkillSe
                             onMouseLeave={() => handleTooltip(index, false)}
                             onClick={() => handleTooltip(index, !openTooltips[index])}
                         >
-                            <Icon className='size-5 md:size-6' />
+                            <Icon className='size-8 md:size-10' />
                         </div>
                     </Tooltip>
                 ))}
@@ -196,7 +196,7 @@ const SkillSection = ({ title, icon, quote, icons, isReversed = false }: SkillSe
 };
 const Skill = () => {
     return (
-        <div className='px-4 py-8 flex flex-col gap-16 min-h-screen' id='expertise'>
+        <div className='px-4 py-8 flex flex-col gap-32 min-h-screen' id='expertise'>
             <SkillSection
                 title="开发"
                 icon={RxCode}

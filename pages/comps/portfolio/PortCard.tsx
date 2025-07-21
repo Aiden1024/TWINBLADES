@@ -61,6 +61,7 @@ const PortCard = ({ title = "Default Title", cover = null, tags = ["Default Tag"
 
 
             <Modal
+                scrollBehavior='inside'
                 size='4xl'
                 closeButton={<Button color="default" isIconOnly size='sm' variant='light' className="group"><RxCross1 className="size-8 group-hover:rotate-90 duration-150 easeInOut" /></Button>}
                 backdrop="opaque"
@@ -87,13 +88,15 @@ const PortCard = ({ title = "Default Title", cover = null, tags = ["Default Tag"
                 }}
                 onOpenChange={onOpenChange}
             >
-                <ModalHeader>{title}</ModalHeader>
+
                 <ModalContent>
                     {(onClose) => (
-                        <div className=' p-4'>
-                            {content}
-
-                        </div>
+                        <>
+                            <ModalHeader>{title}</ModalHeader>
+                            <ModalBody className=' '>
+                                {content}
+                            </ModalBody>
+                        </>
                     )}
                 </ModalContent>
             </Modal>

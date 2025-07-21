@@ -23,7 +23,7 @@ export default function TBTPContent() {
     const [count, setCount] = useState(0);
 
     return (
-        <section className="flex flex-col *:flex *:flex-col *:gap-1   w-full max-w-screen-lg mx-auto gap-8 py-8 md:py-10">
+        <section className="flex flex-col *:flex *:flex-col *:gap-1 pb-8  w-full max-w-screen-lg mx-auto gap-8 ">
             <div>
                 <h2 className=" text-title text-4xl">TB-NEXT-TEMPLATE</h2>
                 <h2 className=" text-subtitle">An i18n Static-Export NEXT Template </h2>
@@ -53,19 +53,19 @@ export default function TBTPContent() {
             </div>
 
             <div>
-                <AlertDemo/>
+                <AlertDemo />
             </div>
-            
+
             <div>
-                <DFontsDemo/>
+                <DFontsDemo />
             </div>
-            
+
             <div>
-                <FetchHookDemo/>
+                <FetchHookDemo />
             </div>
-            
+
             <div>
-                <ProviderDemo/>
+                <ProviderDemo />
             </div>
         </section>
     );

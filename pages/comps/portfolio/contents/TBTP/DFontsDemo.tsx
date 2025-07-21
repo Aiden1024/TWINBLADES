@@ -11,6 +11,9 @@ const DFontsDemo = () => {
 		<>
 			<h2 className="text-header">I18n Based Dynamic Fonts</h2>
 			<h2 className=" text-subheader">
+				Demo: Adaptive Raleway (English) with NotoSans (Chinese)
+			</h2>
+			<h2 className=" text-subheader">
 				{t("heroPage.slogan")}
 			</h2>
 
@@ -21,9 +24,8 @@ const DFontsDemo = () => {
 					}}
 				/>
 
-				<Button onPress={() => window.location.reload()} variant="flat" color="primary" startContent={<RiRefreshLine className=" text-xl" />} className=" w-fit" isIconOnly></Button>
 			</div>
-			<Code className=" w-fit">/fonts/[fontFamily].ttf </Code>
+			<Code className=" w-fit">/config/fonts/[fontFamily].ttf </Code>
 		</>
 	)
 }

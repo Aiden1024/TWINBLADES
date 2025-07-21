@@ -37,7 +37,7 @@ export const getServerIP = async (key: string = 'slpIP') => {
     const response = await fetch(Router.basePath + '/server.json');
     const data = await response.json();
     console.log('data', data[key]);
-    
+
     // 如果是空字符串，需要根据不同情况返回不同的格式
     if (data[key] === "") {
       if (key === "IP_2") {
@@ -68,15 +68,15 @@ const useFetch = () => {
 
   const cancelFetch = () => {
     try {
-        if (abortControllerRef.current) {
-            abortControllerRef.current.abort("Request Cancelled");
-            abortControllerRef.current = null;
-            setLoading(false); // 在取消请求时也重置 loading 状态
-        }
+      if (abortControllerRef.current) {
+        abortControllerRef.current.abort("Request Cancelled");
+        abortControllerRef.current = null;
+        setLoading(false); // 在取消请求时也重置 loading 状态
+      }
     } catch (error) {
-        console.warn('Error cancelling fetch:', error);
+      console.warn('Error cancelling fetch:', error);
     }
-};
+  };
 
   const fetchData = async (props: FetchDataProps) => {
     cancelFetch();
@@ -98,7 +98,7 @@ const useFetch = () => {
       backendUrl = null,
       serverJSONKey = 'IP_1',
       useSessionToken = true,
-      version = '/v4',
+      version = '',
       override401 = false,
       override403 = false,
       overrideTimeout = null,
@@ -151,6 +151,7 @@ const useFetch = () => {
         requestBody = body ? JSON.stringify(body) : null;
         headers = {
           'Content-Type': 'application/json',
+          'x-api-key': 'reqres-free-v1'
         };
       } else if (type === 'FORM_DATA') {
         requestBody = body;
@@ -161,6 +162,7 @@ const useFetch = () => {
         headers = {
           ...headers,
           'X-Session-Token': sessionToken,
+
         };
       } else if (useSessionToken && !sessionToken) {
         console.error('NO TOKEN');
@@ -175,7 +177,7 @@ const useFetch = () => {
       timeoutId = setTimeout(() => {
         // 只在请求还在进行且组件未卸载时显示提醒
         if (!signal.aborted) {
-          alert.info('Bad Internet Connection');
+          alert.info('Slow Internet Connection');
         }
       }, timeoutMsecond);
 
@@ -233,11 +235,11 @@ const useFetch = () => {
 
       if (!response.ok) {
         console.error(`HTTP error ${data?.message}`);
-        setError(data?.message);
+        setError(data?.error);
         if (!disableErrorMsg) {
           alert.error([
             errorMsgTitle,
-            errorMsgContent ? errorMsgContent : data?.message ? data.message : `HTTP Error ${response.statusText}`,
+            errorMsgContent ? errorMsgContent : data?.error ? data.error : `HTTP Error ${response.statusText}`,
           ]);
         }
         return data;

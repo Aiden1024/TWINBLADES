@@ -14,13 +14,13 @@ const AlertDemo = () => {
 			</h2>
 			<div className=" grid grid-cols-3 gap-2 w-fit">
 				<Button
-					color="primary"
+					color="secondary"
 					variant="flat"
 					onPress={() => {
 						alert.info("This is a Info Alert");
 					}}
 				>
-					Alert
+					Info Alert
 				</Button>
 				<Button
 					color="success"
@@ -29,7 +29,7 @@ const AlertDemo = () => {
 						alert.success("This is a Success Alert");
 					}}
 				>
-					Alert
+					Success Alert
 				</Button>
 				<Button
 					color="danger"
@@ -38,16 +38,16 @@ const AlertDemo = () => {
 						alert.error("This is a Error Alert");
 					}}
 				>
-					Alert
+					Error Alert
 				</Button>
 
 				<Button
-					color="primary"
+					color="secondary"
 					onPress={() => {
 						alert.info(["Info Title", "This is a Info Alert Description"]);
 					}}
 				>
-					Title Alert
+					Info Title
 				</Button>
 				<Button
 					color="success"
@@ -58,7 +58,7 @@ const AlertDemo = () => {
 						]);
 					}}
 				>
-					Title Alert
+					Success Title
 				</Button>
 				<Button
 					color="danger"
@@ -66,10 +66,10 @@ const AlertDemo = () => {
 						alert.error(["Error Title", "This is a Error Alert Description"]);
 					}}
 				>
-					Title Alert
+					Error Title
 				</Button>
 			</div>
-			<Code className=" w-fit">/components/alertPops/index.js </Code>
+			<Code className=" w-fit mt-2">/components/alertPops/index.js </Code>
 		</>
 	)
 }

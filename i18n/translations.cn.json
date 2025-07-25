@@ -1,9 +1,20 @@
 {
-		"myKey": "cn",
-		"heroPage": {
-		  "slogan":" 于此升起, 如月长存 ",
-		  "langSwitch":"单击按钮执行语言切换",
-		  "template":"支持填充， 单击 {{count}} 次"
-		  
-		}
+	"myKey": "cn",
+	"heroPage": {
+		"slogan": " 于此升起, 如月长存 ",
+		"langSwitch": "单击按钮执行语言切换",
+		"template": "支持填充， 单击 {{count}} 次"
+	},
+	"home": {
+		"light": "晨光初映时",
+		"dark": "深夕映繁星",
+		"projects": "项目与作品"
+	},
+	"navbar": {
+		"home": "主页",
+		"philosophy": "理念",
+		"experience": "经验",
+		"projects": "项目",
+		"expertise": "专长"
 	}
+}

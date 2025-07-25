@@ -7,9 +7,10 @@ import { RxMoon, RxSun, RxChevronDown, RxStar } from "react-icons/rx";
 import { PiMoonStarsLight, PiSunLight } from "react-icons/pi";
 import { motion } from "framer-motion";
 import { scroller } from 'react-scroll';
-
+import { useTranslation } from 'next-export-i18n';
 import TbLogo from './TBicon';
 export default function Home() {
+  const { t } = useTranslation()
   const [circles, setCircles] = useState<Array<any>>([]);
   const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false);
@@ -90,7 +91,7 @@ export default function Home() {
         onPress={handleThemeChange}
         startContent={<PiMoonStarsLight className='text-xl' />}
       >
-        深夕映繁星
+        {t("home.dark")}
       </Button>
     ) : (
       <Button
@@ -98,7 +99,7 @@ export default function Home() {
         className=' group'
         startContent={<PiSunLight className='text-xl ' />}
       >
-        晨光初映时
+        {t("home.light")}
       </Button>
     );
   };
@@ -192,7 +193,7 @@ export default function Home() {
                 });
               }}
             >
-              项目与作品
+              {t("home.projects")}
             </Button>
           </div>
         </div>

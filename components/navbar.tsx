@@ -25,30 +25,32 @@ import NavDrawer from "./navDrawer";
 
 import { Link as ScrollLink } from 'react-scroll';
 import LangDropdown from "./langDropdown";
+import { useTranslation } from "next-export-i18n";
 export const Navbar = () => {
+	const { t } = useTranslation()
 	const navItems = [
 		{
-			label: "主页",
+			label: t("navbar.home"), // 主页 / Home
 			href: "/",
 			key: "home",
 		},
 		{
-			label: "理念",
+			label: t("navbar.philosophy"), // 理念 / Philosophy
 			href: "/",
 			key: "philosophy",
 		},
 		{
-			label: "经验",
+			label: t("navbar.experience"), // 经验 / Experience
 			href: "/",
 			key: "experience",
 		},
 		{
-			label: "项目",
+			label: t("navbar.projects"), // 项目 / Projects
 			href: "/",
 			key: "projects",
 		},
 		{
-			label: "专长",
+			label: t("navbar.expertise"), // 专长 / Expertise
 			href: "/",
 			key: "expertise",
 		},
@@ -132,7 +134,6 @@ export const Navbar = () => {
 				<NavbarItem>
 					<LangDropdown />
 				</NavbarItem>
-
 
 
 				<NavbarItem className="flex  lg:hidden">

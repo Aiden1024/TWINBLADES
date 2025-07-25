@@ -1,8 +1,20 @@
 {
 	"myKey": "en",
-		"heroPage": {
-		  "slogan":" Rising Up, Flying High ",
-		  "langSwitch":"Press the Button for Language Switching",
-		  "template": "Support Template String, Pressed {{count}} times"
-		}
-  }
+	"heroPage": {
+		"slogan": " Rising Up, Flying High ",
+		"langSwitch": "Press the Button for Language Switching",
+		"template": "Support Template String, Pressed {{count}} times"
+	},
+	"home": {
+		"light": "Rising Sun",
+		"dark": "Night Stars",
+		"projects": "Portfolio"
+	},
+	"navbar": {
+		"home": "Home",
+		"philosophy": "Philosophy",
+		"experience": "Experience",
+		"projects": "Projects",
+		"expertise": "Expertise"
+	}
+}

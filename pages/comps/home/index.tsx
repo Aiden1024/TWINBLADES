@@ -198,7 +198,7 @@ export default function Home() {
         </div>
         <div className=' max-w-72 md:max-w-[450px] md:w-full'>
           <motion.div
-            initial={{ y: 0,}}
+            initial={{ y: 0, }}
             animate={{
               y: [-6, 6, -6],
 

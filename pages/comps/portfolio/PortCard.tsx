@@ -11,7 +11,9 @@ import {
 } from "@heroui/react";
 import { RxCross1 } from 'react-icons/rx';
 const PortCard = ({ title = "Default Title", cover = null, tags = ["Default Tag"], desc = "Default Description", date = "0000.00.00 - 0000.00.00",
-    content = <div className=' p-4 h-72'>Default Content</div> }) => {
+    content = <div className=' p-4 h-72'>Default Content</div>,
+    infoJSON = {}
+}) => {
 
     const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
@@ -93,7 +95,15 @@ const PortCard = ({ title = "Default Title", cover = null, tags = ["Default Tag"
                     {(onClose) => (
                         <>
                             <ModalHeader>{title}</ModalHeader>
-                            <ModalBody className=' '>
+                            <ModalBody className=' flex flex-col gap-2 '>
+                                <div className=' text-default-700'>{desc}</div>
+                                <div className=' py-8'>
+                                    {Object.entries(infoJSON).map(([key, value]) => (
+                                        <div key={key} className=' flex flex-row gap-2'>
+                                            {key} <a className=' text-default-500 hover:text-secondary cursor-pointer duration-150' href={String(value)} target="_blank">{String(value)}</a>
+                                        </div>
+                                    ))}
+                                </div>
                                 {content}
                             </ModalBody>
                         </>

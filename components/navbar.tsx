@@ -104,7 +104,7 @@ export const Navbar = () => {
 			</NavbarContent>
 
 			<NavbarContent
-				className="flex basis-1/5 sm:basis-full mr-2"
+				className="flex basis-1/5 sm:basis-full mr-2 gap-2 md:gap-4"
 				justify="end"
 
 			>
@@ -135,7 +135,7 @@ export const Navbar = () => {
 
 
 
-				<NavbarItem className="flex  md:hidden">
+				<NavbarItem className="flex  lg:hidden">
 
 					<Button isIconOnly radius="full" variant="light" onPress={onOpenDrawer} className=''>
 						<PiList className=" text-2xl" />

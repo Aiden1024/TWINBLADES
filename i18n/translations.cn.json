@@ -16,5 +16,90 @@
 		"experience": "经验",
 		"projects": "项目",
 		"expertise": "专长"
+	},
+	"banner": {
+		"1": {
+			"title": "大 道 至 简",
+			"role": "UI/UX 设计理念"
+		},
+		"2": {
+			"title": "极 效 致 用",
+			"role": "前端开发理念"
+		},
+		"3": {
+			"title": "构 简 驭 繁",
+			"role": "产品设计理念"
+		},
+		"4": {
+			"title": "众 水 之 诗",
+			"role": "音乐演奏理念"
+		}
+	},
+	"experience": {
+		"education": "教育背景",
+		"work": "工作经历",
+		"institutions": {
+			"uoft": "多伦多大学",
+			"winston_churchill": "温斯顿丘吉尔中学",
+			"visionmatrix": "微马视觉智能科技有限公司",
+			"szmg": "深圳广播电影电视集团华夏城视"
+		},
+		"locations": {
+			"toronto": "加拿大，多伦多",
+			"vancouver": "加拿大，温哥华",
+			"hong_kong": "中国，香港",
+			"shenzhen": "中国，深圳"
+		},
+		"degrees": {
+			"undergraduate": "本科",
+			"high_school": "高中",
+			"internship": "软件开发实习",
+			"frontend_ui": "前端 · UI · 产品"
+		},
+		"university": {
+			"details": [
+				"加拿大1位， 全球21位 - 2023",
+				"3.54/4.0 GPA",
+				"计算机科学 & 工商管理学 - 专业淘汰率(75% +)",
+				"荣誉理学士 - 高度荣誉"
+			]
+		},
+		"highschool": {
+			"details": [
+				"曾代表学校参加不列颠哥伦比亚大学物理奥运大赛"
+			]
+		},
+		"job1": {
+			"details": [
+				"参与消费级 AI 应的功能解析与测试"
+			]
+		},
+		"job2": {
+			"details": [
+				"精通 React/Next.js 与 Tailwind CSS",
+				"完成 5+ POC 与 4 个商业项目落地",
+				"负责政府、企业、消费级 AI 应用开发",
+				"实现拖拽、连线、绘图、标注等复杂交互功能",
+				"具备产品设计与端到端开发能力"
+			]
+		},
+		"expertise": {
+			"development": {
+				"title": "开发",
+				"quote": "如果你为错过太阳而流泪，你也将会错过群星"
+			},
+			"design": {
+				"title": "设计",
+				"quote": "设计是可视化的智慧"
+			},
+			"product": {
+				"title": "产品",
+				"quote": "构想. 规划. 创造"
+			},
+			"music": {
+				"title": "音乐",
+				"quote": "仿若无因飘落的轻雨"
+			}
+		}
 	}
 }

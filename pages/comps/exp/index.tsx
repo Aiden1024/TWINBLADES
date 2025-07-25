@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Link } from '@heroui/react';
+import { useTranslation } from 'next-export-i18n';
 // 标题组件
 export const SectionTitle = ({
     icon: Icon,
@@ -61,9 +62,9 @@ const ExpCard = ({
     <>
         <div className=' mt-6 w-full flex flex-col md:flex-row md:justify-between md:items-center  font-medium'>
             <span className=' flex-1'>{dateRange}</span>
-            <a   target="_blank" rel="noopener noreferrer" href={href}  className='md:text-center text-xl md:text-base relative group   w-fit cursor-pointer duration-300 ease-in-out transition-all'>
+            <a target="_blank" rel="noopener noreferrer" href={href} className='md:text-center text-xl md:text-base relative group   w-fit cursor-pointer duration-300 ease-in-out transition-all'>
                 <span >{institution}</span>
-                <Divider className=' bg-primary-500/70 w-0 group-hover:w-full duration-300 ease-in-out '/>
+                <Divider className=' bg-primary-500/70 w-0 group-hover:w-full duration-300 ease-in-out ' />
             </a>
             <span className=' flex-1 md:text-end text-sm font-normal text-default-600 md:justify-end flex items-center gap-2'>
                 {degree}
@@ -82,80 +83,57 @@ const ExpCard = ({
 
 
 const Experience = () => {
-    const universityDetails = [
-        "加拿大1位， 全球21位 - 2023",
-        "3.54/4.0 GPA",
-        "计算机科学 & 工商管理学 - 专业淘汰率(75% +)",
-        "荣誉理学士 - 高度荣誉"
-    ];
-
-    const highSchoolDetails = [
-        "曾代表学校参加不列颠哥伦比亚大学物理奥运大赛"
-    ];
-
-    const job1Details = [
-        "参与消费级 AI 应的功能解析与测试"
-    ];
-
-    const job2Details = [
-        "精通 React/Next.js 与 Tailwind CSS",
-        "完成 5+ POC 与 4 个商业项目落地",
-        "负责政府、企业、消费级 AI 应用开发",
-        "实现拖拽、连线、绘图、标注等复杂交互功能",
-        "具备产品设计与端到端开发能力"
-    ];
+    const { t } = useTranslation();
 
     return (
-        <div className='w-full flex flex-col py-8 px-4 ' id='experience'>
+        <div className='w-full flex flex-col py-8 px-4' id='experience'>
             <div className='flex flex-col w-full'>
                 <SectionTitle
                     icon={PiGraduationCap}
-                    text="教育背景"
+                    text={t("experience.education")}
                 />
 
                 <ExpCard
                     dateRange="2019.09 - 2023.05"
-                    institution="多伦多大学"
-                    location="加拿大，多伦多"
-                    degree="本科"
-                    details={universityDetails}
+                    institution={t("experience.institutions.uoft")}
+                    location={t("experience.locations.toronto")}
+                    degree={t("experience.degrees.undergraduate")}
+                    details={t("experience.university.details")}
                     href="https://www.utoronto.ca/"
                 />
-                <Spacer className=' my-4 ' />
+                <Spacer className='my-4' />
 
                 <ExpCard
                     dateRange="2016.09 - 2019.05"
-                    institution="温斯顿丘吉尔"
-                    location="加拿大，温哥华"
-                    degree="高中"
-                    details={highSchoolDetails}
+                    institution={t("experience.institutions.winston_churchill")}
+                    location={t("experience.locations.vancouver")}
+                    degree={t("experience.degrees.high_school")}
+                    details={t("experience.highschool.details")}
                     href="https://www.vsb.bc.ca/sir-winston-churchill"
                 />
-                <Divider className=' my-8 invisible' />
+                <Divider className='my-8 invisible' />
                 <SectionTitle
                     icon={PiSuitcaseSimple}
-                    text="工作经历"
+                    text={t("experience.work")}
                 />
                 <ExpCard
                     dateRange="2023.10 - 2025.07"
-                    institution="微马视觉智能科技有限公司"
-                    location="中国，香港"
-                    degree="前端 · UI · 产品"
-                    details={job2Details}
+                    institution={t("experience.institutions.visionmatrix")}
+                    location={t("experience.locations.hong_kong")}
+                    degree={t("experience.degrees.frontend_ui")}
+                    details={t("experience.job2.details")}
                     href="https://visionmatrix.ai/"
-                    
                 />
 
-                <Spacer className=' my-4 ' />
+                <Spacer className='my-4' />
 
                 <ExpCard
                     dateRange="2023.08 - 2023.10"
-                    institution="深圳广播电影电视集团华夏城视"
-                    location="中国，深圳"
-                    degree="软件开发实习"
-                    details={job1Details}
+                    institution={t("experience.institutions.szmg")}
+                    location={t("experience.locations.shenzhen")}
+                    degree={t("experience.degrees.internship")}
+                    details={t("experience.job1.details")}
                     href="https://www.szmg.com.cn/"
-
                 />
             </div>
         </div>

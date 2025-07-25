@@ -16,5 +16,89 @@
 		"experience": "Experience",
 		"projects": "Projects",
 		"expertise": "Expertise"
+	},
+	"banner": {
+		"1": {
+			"title": "Less is More",
+			"role": "UI/UX Philosophy"
+		},
+		"2": {
+			"title": "Efficiency and Effectiveness",
+			"role": "Frontend Principle"
+		},
+		"3": {
+			"title": "Simplicity Completes Complexity",
+			"role": "Product Concepts"
+		},
+		"4": {
+			"title": "Ballad of Many Waters ",
+			"role": "Music Philosophy"
+		}
+	},
+	"experience": {
+		"education": "Education",
+		"work": "Work Experience",
+		"institutions": {
+			"uoft": "University of Toronto",
+			"winston_churchill": "Sir Winston Churchill Secondary School",
+			"visionmatrix": "VisionMatrix Technology Limited",
+			"szmg": "Shenzhen Media Group"
+		},
+		"locations": {
+			"toronto": "Toronto, Canada",
+			"vancouver": "Vancouver, Canada",
+			"hong_kong": "Hong Kong, China",
+			"shenzhen": "Shenzhen, China"
+		},
+		"degrees": {
+			"undergraduate": "Undergraduate",
+			"high_school": "High School",
+			"internship": "Internship",
+			"frontend_ui": "Frontend · UI · Product"
+		},
+		"university": {
+			"details": [
+				"#1 in Canada, #21 Worldwide - 2023",
+				"Computer Science & Business Management - Program attrition rate (75%+)",
+				"Bachelor of Science with High Distinction"
+			]
+		},
+		"highschool": {
+			"details": [
+				"Represented school at UBC Physics Olympics competition"
+			]
+		},
+		"job1": {
+			"details": [
+				"Participated in functional analysis and testing of consumer AI applications"
+			]
+		},
+		"job2": {
+			"details": [
+				"Proficient in React/Next.js & Tailwind CSS",
+				"Delivered 5+ POCs and 4 commercial projects",
+				"Developed AI applications for government, enterprise, and consumer sectors",
+				"Implemented complex interactions: drag-and-drop, node wiring, canvas drawing, and annotation",
+				"Full product design and end-to-end development capabilities"
+			]
+		}
+	},
+	"expertise": {
+		"development": {
+			"title": "Development",
+			"quote": "If you shed tears when you miss the sun, you also miss the stars"
+		},
+		"design": {
+			"title": "Design",
+			"quote": "Design is intelligence made visible"
+		},
+		"product": {
+			"title": "Product",
+			"quote": "Conceive. Plan. Create"
+		},
+		"music": {
+			"title": "Music",
+			"quote": "Like rain falling without reason"
+		}
 	}
 }

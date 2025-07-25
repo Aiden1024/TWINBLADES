@@ -14,6 +14,7 @@ import Ableton from './icons/Ableton';
 import CapCut from './icons/CapCut';
 import { IconType } from 'react-icons';
 import { VscMusic } from "react-icons/vsc";
+import { useTranslation } from 'next-export-i18n';
 const skillIcons = [
     // 前端基础
     {
@@ -195,32 +196,32 @@ const SkillSection = ({ title, icon, quote, icons, isReversed = false }: SkillSe
     );
 };
 const Skill = () => {
+    const { t } = useTranslation()
     return (
         <div className='px-4 py-8 flex flex-col gap-32 min-h-screen' id='expertise'>
             <SkillSection
-                title="开发"
+                title={t("expertise.development.title")}
                 icon={RxCode}
-                quote="如果你为错过太阳而流泪，你也将会错过群星"
+                quote={t("expertise.development.quote")}
                 icons={skillIcons}
             />
             <SkillSection
-                title="设计"
+                title={t("expertise.design.title")}
                 icon={RxCrop}
-                quote="设计是可视化的智慧"
+                quote={t("expertise.design.quote")}
                 icons={designIcons}
                 isReversed
             />
             <SkillSection
-                title="产品"
+                title={t("expertise.product.title")}
                 icon={RxLayers}
-                // quote="Design is intelligence made visible" (设计是可视化的智慧)"
-                quote='构想. 规划. 创造'
+                quote={t("expertise.product.quote")}
                 icons={productIcons}
             />
             <SkillSection
-                title="音乐"
+                title={t("expertise.music.title")}
                 icon={VscMusic}
-                quote="仿若无因飘落的轻雨"
+                quote={t("expertise.music.quote")}
                 icons={musicIcons}
                 isReversed
             />

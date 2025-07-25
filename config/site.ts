@@ -1,7 +1,7 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-  name: "TWINBLADES",
-  description: "The only way to find your limits is to go beyond them.",
+  name: "TWINBLADES DEVELOP",
+  description: "If you shed tears when you miss the sun, you also miss the stars",
 
 };

@@ -82,24 +82,24 @@
 				"实现拖拽、连线、绘图、标注等复杂交互功能",
 				"具备产品设计与端到端开发能力"
 			]
+		}
+	},
+	"expertise": {
+		"development": {
+			"title": "开发",
+			"quote": "如果你为错过太阳而流泪，你也将会错过群星"
 		},
-		"expertise": {
-			"development": {
-				"title": "开发",
-				"quote": "如果你为错过太阳而流泪，你也将会错过群星"
-			},
-			"design": {
-				"title": "设计",
-				"quote": "设计是可视化的智慧"
-			},
-			"product": {
-				"title": "产品",
-				"quote": "构想. 规划. 创造"
-			},
-			"music": {
-				"title": "音乐",
-				"quote": "仿若无因飘落的轻雨"
-			}
+		"design": {
+			"title": "设计",
+			"quote": "设计是可视化的智慧"
+		},
+		"product": {
+			"title": "产品",
+			"quote": "构想. 规划. 创造"
+		},
+		"music": {
+			"title": "音乐",
+			"quote": "仿若无因飘落的轻雨"
 		}
 	}
 }

@@ -55,6 +55,6 @@ export const RPContent = () => {
 };
 
 export const RPdesc =
-  "SLP SLP SLP SLP SLP SLP SLP SLP SLP SLP SLP SLP SLP SLP SLP SLP SLP SLP SLP SLP SLP SLP SLP SLP SLP SLP SLP SLP SLP SLP ";
+  "The RTH-SPC is a government-funded program launched in July 2020 to support incubatees and I&T tenants of Hong Kong Science Park (HKSTPC) and Cyberport in hiring research talent for R&D projects. It merges two former schemes (Researcher Programme and Postdoctoral Hub) under the Innovation and Technology Fund (ITF) 研究人才库（RTH-SPC）是香港特别行政区政府于2020年7月推出的专项计划，旨在为香港科技园公司（HKSTPC）及香港数码港管理有限公司（Cyberport）的培育公司和创科租户提供资助，帮助其聘用研究人才进行研发工作。该计划整合了原有的「研究员计划」和「博士专才库」，进一步优化了人才支持机制";
 
 export default HKITCRP;

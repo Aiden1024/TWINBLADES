@@ -26,6 +26,8 @@ import NavDrawer from "./navDrawer";
 import { Link as ScrollLink } from 'react-scroll';
 import LangDropdown from "./langDropdown";
 import { useTranslation } from "next-export-i18n";
+import { RxGithubLogo } from "react-icons/rx";
+import { SiGithub } from "react-icons/si";
 export const Navbar = () => {
 	const { t } = useTranslation()
 	const navItems = [
@@ -124,7 +126,7 @@ export const Navbar = () => {
 							}
 						}}
 					>
-						<PiEnvelopeLight className="text-2xl" />
+						<SiGithub className="size-5" />
 					</Button>
 				</NavbarItem>
 				<NavbarItem>

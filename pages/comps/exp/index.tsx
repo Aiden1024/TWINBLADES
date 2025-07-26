@@ -42,9 +42,9 @@ const AnimatedDetail = ({ detail, index }) => {
                 delay: index * 0.1, // 每项延迟 0.1 秒
                 ease: "easeOut"
             }}
-            className='flex gap-2 items-center'
+            className='flex gap-2 items-start '
         >
-            <LuDot className='text-default-500' />
+            <LuDot className='text-default-500 flex-shrink-0 translate-y-1' />
             <p>{detail}</p>
         </motion.div>
     );

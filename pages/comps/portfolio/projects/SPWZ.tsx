@@ -46,6 +46,6 @@ export const SPWZContent = () => {
     )
 }
 
-export const SPWZdesc = "SPWZ SPWZ SPWZ SPWZ SPWZ SPWZ SPWZ SPWZ SPWZ SPWZ SPWZ SPWZ SPWZ SPWZ SPWZ SPWZ SPWZ SPWZ SPWZ SPWZ SPWZ SPWZ SPWZ SPWZ SPWZ SPWZ SPWZ SPWZ SPWZ SPWZ "
+export const SPWZdesc = "SpeechWizard is a web-based audio/video transcription tool supporting English, Mandarin and Cantonese with 92% accuracy. Users can purchase time credits to convert meeting recordings, lecture videos into subtitles (SRT/VTT) or plain text (TXT). Featuring AI-powered noise reduction and voice separation, it effectively filters background noise and isolates speakers, ideal for online educators and content creators.SpeechWizard 语音转写助手是一款基于网页的智能音视频转文字工具，支持英语、普通话和粤语的精准转写（准确率达92%）。用户可通过购买时长卡，将会议记录、课程视频等音视频内容快速转换为字幕文件（SRT/VTT）或纯文本（TXT）。系统采用先进的AI降噪和人声分离技术，能有效过滤背景杂音并分离多人对话，特别适合在线教育、自媒体创作者等用户群体使用。"
 
 export default SPWZ

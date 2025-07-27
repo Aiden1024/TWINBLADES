@@ -100,5 +100,64 @@
 			"title": "Music",
 			"quote": "Like rain falling without reason"
 		}
+	},
+	"portfolio": {
+		"projects_title": "Projects & Works",
+		"projects": [
+			{
+				"title": "TWINBLADES TEMPLATE",
+				"tags": [
+					"Frontend ",
+					"UI/UX"
+				],
+				"date": "2025.01 - Current",
+				"desc": "TwinBlades Template is a front-end template project built with Next.js and Tailwind CSS, integrating essential components and tools for daily development. It features built-in internationalization (i18n) for multilingual support, pre-configured API hooks for simplified requests, keyboard event listeners for shortcut operations, and reusable modal components. The template also includes global state management providers, enabling developers to rapidly build interactive user interfaces."
+			},
+			{
+				"title": "Hong Kong ITC Research Talent",
+				"tags": [
+					"2024 Top Talent",
+					"HKSTP Talent"
+				],
+				"date": "0000.00.00 - 0000.00.00",
+				"desc": "The RTH-SPC is a government-funded program launched in July 2020 to support incubatees and I&T tenants of Hong Kong Science Park (HKSTPC) and Cyberport in hiring research talent for R&D projects. It merges two former schemes (Researcher Programme and Postdoctoral Hub) under the Innovation and Technology Fund (ITF)"
+			},
+			{
+				"title": "Self-Learning Platform v4",
+				"tags": [
+					"Frontend ",
+					"UI/UX",
+					"Product Design"
+				],
+				"date": "0000.00.00 - 0000.00.00",
+				"desc": "Self-Learning Platform v4 (SLPv4) is a no-code AI training platform that makes building custom models for object detection, facial recognition, and movement analysis effortless. With its guided step-by-step interface, users can quickly upload data, select pre-configured templates, and start training models - all within minutes. The platform supports multiple languages and enables seamless team collaboration, putting advanced AI capabilities within everyone's reach."
+			},
+			{
+				"title": "AI Box v2",
+				"tags": [
+					"Frontend ",
+					"UX Design"
+				],
+				"date": "0000.00.00 - 0000.00.00",
+				"desc": "AI BOX v2 is an ONVIF-compatible edge AI device that supports running any custom object detection models (including facial recognition, anomaly detection, hazardous items identification, etc.). Featuring multilingual interface (Chinese/English, etc.) and seamless integration with Self-Learning Platform v4 (SLPv4), it allows users to train custom models on SLPv4 and deploy directly for real-time analysis. All data processing occurs locally to ensure privacy protection."
+			},
+			{
+				"title": "Multimodal Video Search Engine",
+				"tags": [
+					"Frontend ",
+					"UI/UX"
+				],
+				"date": "0000.00.00 - 0000.00.00",
+				"desc": "As a government-backed intelligent video analytics solution, MVSE(Multi-modal Video Search Engine) provides the Hong Kong Police Force with advanced multimodal search capabilities. Officers can combine queries like 'police uniform + vehicle image' to instantly search through millions of surveillance hours, retrieving all target appearances with timestamped evidence. The system's bilingual (Chinese/English) interface is optimized for police workflows, currently operational at HK Police Headquarters' smart security platform."
+			},
+			{
+				"title": "Speech Wizard",
+				"tags": [
+					"Frontend "
+				],
+				"date": "0000.00.00 - 0000.00.00",
+				"desc": "SpeechWizard is a web-based audio/video transcription tool supporting English, Mandarin and Cantonese with 92% accuracy. Users can purchase time credits to convert meeting recordings, lecture videos into subtitles (SRT/VTT) or plain text (TXT). Featuring AI-powered noise reduction and voice separation, it effectively filters background noise and isolates speakers, ideal for online educators and content creators."
+			}
+		]
 	}
 }

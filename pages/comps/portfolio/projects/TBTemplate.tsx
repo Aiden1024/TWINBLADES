@@ -1,5 +1,6 @@
 import { Divider } from "@heroui/react";
 import { motion } from "framer-motion";
+import { useTranslation } from "next-export-i18n";
 import React, { useEffect, useState } from "react";
 const TBTemplate = () => {
   return <div>TBTemplate</div>;
@@ -7,13 +8,13 @@ const TBTemplate = () => {
 
 export const TBTPCover = () => {
   const letters = ["T", "E", "M", "P", "L", "A", "T", "E"];
-const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % letters.length);
     }, 1000);
-    
+
     return () => clearInterval(interval);
   }, [letters.length]);
   return (
@@ -21,11 +22,11 @@ const [activeIndex, setActiveIndex] = useState(0);
       {" "}
       {/* 添加 flex 和 justify-center */}
       <div className="flex h-full flex-col w-fit justify-center items-stretch text-3xl font-medium">
-  <h2 className='tracking-widest inline-block'>TWIN<span className=''>B</span>LADES</h2>
+        <h2 className='tracking-widest inline-block'>TWIN<span className=''>B</span>LADES</h2>
         <div className='flex flex-row justify-between w-auto font-light text-xl text-primary'>
           {letters.map((letter, index) => (
-            <span 
-              key={index} 
+            <span
+              key={index}
               className={`${index === activeIndex ? 'font-bold' : 'font-light scale-100'} duration-200 ease-in-out`}
             >
               {letter}
@@ -38,6 +39,7 @@ const [activeIndex, setActiveIndex] = useState(0);
 };
 
 export const TBTPContent = () => {
+  const { t } = useTranslation()
   return <div>TBTemplate</div>;
 };
 

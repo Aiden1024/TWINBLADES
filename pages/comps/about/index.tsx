@@ -40,7 +40,7 @@ const About = () => {
     }, [])
 
     return (
-        <div className='w-full flex flex-col items-center h-[100vh]  py-16 px-2' id='philosophy'>
+        <div className='w-full flex flex-col items-center text-center h-[100vh]  py-16 px-2' id='philosophy'>
             <div className='flex-1' /> {/* 顶部空白占位 */}
 
             <AnimatePresence mode="wait">
@@ -53,7 +53,7 @@ const About = () => {
                         duration: 0.5,
                         ease: "easeOut"
                     }}
-                    className='text-5xl'
+                    className=' text-4xl lg:text-5xl'
                 >
                     {bannerList[banNum - 1].title}
                 </motion.h2>

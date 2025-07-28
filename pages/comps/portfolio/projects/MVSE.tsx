@@ -1,7 +1,7 @@
 import React from "react";
 import MVSEIcon from "../icons/MVSEicon";
 import { motion } from "framer-motion";
-import { ImageGallery } from "../ImageGallary";
+import ImageGallery from "../ImageGallary";
 import { useRouter } from "next/router";
 
 const MVSE = () => {

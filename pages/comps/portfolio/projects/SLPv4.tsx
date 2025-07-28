@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { AnimatePresence, motion, useAnimation } from "framer-motion";
 import { useRouter } from 'next/router';
 import { Link, Image } from '@heroui/react';
-import { ImageGallery } from '../ImageGallary';
+import ImageGallery from '../ImageGallary';
 const SLPv4 = () => {
   return (
     <div>

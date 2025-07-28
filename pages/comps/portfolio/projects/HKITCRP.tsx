@@ -3,7 +3,7 @@ import PiIcon from "../icons/Pi";
 import { useTheme } from "next-themes";
 import { motion } from "framer-motion";
 import { useRouter } from "next/router";
-import { ImageGallery } from "../ImageGallary";
+import ImageGallery from "../ImageGallary";
 const HKITCRP = () => {
   return <div>RP</div>;
 };

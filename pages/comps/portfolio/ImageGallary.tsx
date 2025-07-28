@@ -8,7 +8,7 @@ interface ImageGalleryProps {
     imageClassName?: string;
 }
 
-export const ImageGallery = ({
+const ImageGallery = ({
     images,
     className = '',
     imageClassName = ''
@@ -37,3 +37,4 @@ export const ImageGallery = ({
     );
 };
 
+export default ImageGallery

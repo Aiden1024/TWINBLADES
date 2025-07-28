@@ -1,7 +1,7 @@
 import React from 'react'
 import SPWZicon from '../icons/SPWZicon';
 import { useRouter } from 'next/router';
-import { ImageGallery } from '../ImageGallary';
+import ImageGallery from '../ImageGallary';
 const SPWZ = () => {
     return (
         <div>

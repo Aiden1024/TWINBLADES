@@ -3,7 +3,7 @@ import AIBOXLogo from "../icons/AIBOXLogo";
 import AIBOXname from "../icons/AIBOXnameIcon";
 import { motion } from "framer-motion";
 import { useRouter } from "next/router";
-import { ImageGallery } from "../ImageGallary";
+import ImageGallery from "../ImageGallary";
 const AIBox = () => {
   return <div>AIBox</div>;
 };

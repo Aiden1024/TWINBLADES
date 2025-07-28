@@ -1,5 +1,4 @@
 import React from 'react';
-import { useRouter } from 'next/router';
 import { Image, Link } from '@heroui/react';
 
 interface ImageGalleryProps {
@@ -9,13 +8,14 @@ interface ImageGalleryProps {
 }
 
 const ImageGallery = ({
-    images,
+    images = [],
     className = '',
-    imageClassName = ''
+    imageClassName = '',
 }: ImageGalleryProps) => {
-    const router = useRouter();
-    const basePath = router.basePath || '';
-
+    // 简单的空状态处理
+    if (!images || images.length === 0) {
+        return <div className="py-8 text-center text-default-500">暂无图片</div>;
+    }
 
     return (
         <div className={`flex flex-col gap-6 pb-8 ${className}`}>
@@ -24,12 +24,12 @@ const ImageGallery = ({
                     key={`${index}-${src}`}
                     href={src}
                     isExternal
-                    className="group block border border-default min-h-[96] bg-default-200 "
+                    className="group block border border-default min-h-[96px] bg-default-200"
                 >
                     <Image
                         src={src}
                         alt={`Gallery Image ${index + 1}`}
-                        className={`w-full h-auto  ${imageClassName}`}
+                        className={`w-full h-auto ${imageClassName}`}
                     />
                 </Link>
             ))}
@@ -37,4 +37,4 @@ const ImageGallery = ({
     );
 };
 
-export default ImageGallery
+export default ImageGallery;

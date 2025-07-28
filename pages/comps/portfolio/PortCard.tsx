@@ -64,7 +64,7 @@ const PortCard = ({ title = "Default Title", cover = null, tags = ["Default Tag"
 
             <Modal
                 scrollBehavior='inside'
-                size='4xl'
+                size='5xl'
                 closeButton={<Button color="default" isIconOnly size='sm' variant='light' className="group"><RxCross1 className="size-8 group-hover:rotate-90 duration-150 easeInOut" /></Button>}
                 backdrop="opaque"
                 isOpen={isOpen}
@@ -97,7 +97,7 @@ const PortCard = ({ title = "Default Title", cover = null, tags = ["Default Tag"
                             <ModalHeader>{title}</ModalHeader>
                             <ModalBody className=' flex flex-col gap-2 '>
                                 <div className=' text-default-700'>{desc}</div>
-                                <div className=' py-8'>
+                                <div className=' py-2'>
                                     {Object.entries(infoJSON).map(([key, value]) => (
                                         <div key={key} className=' flex flex-row gap-2'>
                                             {key} <a className=' text-default-500 hover:text-secondary cursor-pointer duration-150' href={String(value)} target="_blank">{String(value)}</a>

@@ -32,7 +32,7 @@ const Contact = () => {
     {
       id: 4,
       icon: BsFillPersonLinesFill,
-      href: `${basePath}/contact/resume.pdf`, // 或者你的简历链接
+      href: `${basePath}/contact/TBresume.pdf`, // 或者你的简历链接
       label: 'Resume',
       download: true
     }

@@ -1,5 +1,7 @@
 import React from 'react'
 import SPWZicon from '../icons/SPWZicon';
+import { useRouter } from 'next/router';
+import { ImageGallery } from '../ImageGallary';
 const SPWZ = () => {
     return (
         <div>
@@ -39,11 +41,25 @@ export const SPWZCover = () => {
 }
 
 export const SPWZContent = () => {
+    const router = useRouter();
+    const basePath = router.basePath || '';
+
+    const images = [
+        `${basePath}/portfolio/spwz/1.png`,
+        `${basePath}/portfolio/spwz/2.png`,
+        `${basePath}/portfolio/spwz/3.png`,
+        `${basePath}/portfolio/spwz/4.png`,
+        `${basePath}/portfolio/spwz/5.png`,
+        `${basePath}/portfolio/spwz/6.png`,
+        `${basePath}/portfolio/spwz/7.png`,
+        `${basePath}/portfolio/spwz/8.png`,
+        `${basePath}/portfolio/spwz/9.png`,
+    ];
     return (
-        <div>
-            SPWZ
-        </div>
-    )
+        <ImageGallery
+            images={images}
+        />
+    );
 }
 
 export const SPWZdesc = "SpeechWizard is a web-based audio/video transcription tool supporting English, Mandarin and Cantonese with 92% accuracy. Users can purchase time credits to convert meeting recordings, lecture videos into subtitles (SRT/VTT) or plain text (TXT). Featuring AI-powered noise reduction and voice separation, it effectively filters background noise and isolates speakers, ideal for online educators and content creators.SpeechWizard 语音转写助手是一款基于网页的智能音视频转文字工具，支持英语、普通话和粤语的精准转写（准确率达92%）。用户可通过购买时长卡，将会议记录、课程视频等音视频内容快速转换为字幕文件（SRT/VTT）或纯文本（TXT）。系统采用先进的AI降噪和人声分离技术，能有效过滤背景杂音并分离多人对话，特别适合在线教育、自媒体创作者等用户群体使用。"

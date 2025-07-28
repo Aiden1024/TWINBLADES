@@ -1,6 +1,8 @@
 import React from "react";
 import MVSEIcon from "../icons/MVSEicon";
 import { motion } from "framer-motion";
+import { ImageGallery } from "../ImageGallary";
+import { useRouter } from "next/router";
 
 const MVSE = () => {
   return <div>MVSE</div>;
@@ -43,7 +45,21 @@ export const MVSECover = () => {
 };
 
 export const MVSEContent = () => {
-  return <div>MVSE</div>;
+  const router = useRouter();
+  const basePath = router.basePath || '';
+
+  const images = [
+    `${basePath}/portfolio/mvse/1.png`,
+    `${basePath}/portfolio/mvse/2.png`,
+    `${basePath}/portfolio/mvse/3.png`,
+    `${basePath}/portfolio/mvse/4.png`,
+    `${basePath}/portfolio/mvse/5.png`,
+  ];
+  return (
+    <ImageGallery
+      images={images}
+    />
+  );
 };
 
 export const MVSEdesc =

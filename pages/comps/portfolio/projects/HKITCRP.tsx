@@ -2,6 +2,8 @@ import React from "react";
 import PiIcon from "../icons/Pi";
 import { useTheme } from "next-themes";
 import { motion } from "framer-motion";
+import { useRouter } from "next/router";
+import { ImageGallery } from "../ImageGallary";
 const HKITCRP = () => {
   return <div>RP</div>;
 };
@@ -51,7 +53,18 @@ export const RPCover = () => {
 };
 
 export const RPContent = () => {
-  return <div>RP</div>;
+  const router = useRouter();
+  const basePath = router.basePath || '';
+
+  const images = [
+    `${basePath}/portfolio/rp/1.png`,
+
+  ];
+  return (
+    <ImageGallery
+      images={images}
+    />
+  );
 };
 
 export const RPdesc =

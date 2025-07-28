@@ -2,6 +2,8 @@ import React from "react";
 import AIBOXLogo from "../icons/AIBOXLogo";
 import AIBOXname from "../icons/AIBOXnameIcon";
 import { motion } from "framer-motion";
+import { useRouter } from "next/router";
+import { ImageGallery } from "../ImageGallary";
 const AIBox = () => {
   return <div>AIBox</div>;
 };
@@ -33,7 +35,23 @@ export const AIBoxCover = () => {
 };
 
 export const AIBoxContent = () => {
-  return <div>AIBox</div>;
+  const router = useRouter();
+  const basePath = router.basePath || '';
+
+  const images = [
+    `${basePath}/portfolio/aibox/1.png`,
+    `${basePath}/portfolio/aibox/2.png`,
+    `${basePath}/portfolio/aibox/3.png`,
+    `${basePath}/portfolio/aibox/4.png`,
+    `${basePath}/portfolio/aibox/5.png`,
+    `${basePath}/portfolio/aibox/6.png`,
+    `${basePath}/portfolio/aibox/7.png`
+  ];
+  return (
+    <ImageGallery
+      images={images}
+    />
+  );
 };
 
 export const AIBoxdesc =

@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { AnimatePresence, motion, useAnimation } from "framer-motion";
+import { useRouter } from 'next/router';
+import { Link, Image } from '@heroui/react';
+import { ImageGallery } from '../ImageGallary';
 const SLPv4 = () => {
   return (
     <div>
@@ -106,11 +109,23 @@ export const SLPv4Cover = () => {
 
 
 export const SLPv4Content = () => {
+  const router = useRouter();
+  const basePath = router.basePath || '';
+
+  const images = [
+    `${basePath}/portfolio/slpv4/1.png`,
+    `${basePath}/portfolio/slpv4/2.png`,
+    `${basePath}/portfolio/slpv4/3.png`,
+    `${basePath}/portfolio/slpv4/4.png`,
+    `${basePath}/portfolio/slpv4/5.png`,
+    `${basePath}/portfolio/slpv4/6.png`,
+    `${basePath}/portfolio/slpv4/7.png`
+  ];
   return (
-    <div>
-      SLP
-    </div>
-  )
+    <ImageGallery
+      images={images}
+    />
+  );
 }
 
 export const SLPv4desc = "Self-Learning Platform v4 (SLPv4) is a no-code AI training platform that makes building custom models for object detection, facial recognition, and movement analysis effortless. With its guided step-by-step interface, users can quickly upload data, select pre-configured templates, and start training models - all within minutes. The platform supports multiple languages and enables seamless team collaboration, putting advanced AI capabilities within everyone's reach. 自学习平台v4 (SLPv4) 是一款无需编程的AI训练平台，可轻松构建物体识别、人脸检测和动作分析模型。通过其引导式分步界面，用户只需上传数据、选择预设模板，即可在几分钟内完成模型训练。平台支持多语言操作和团队协作功能，让人工智能技术触手可及。"

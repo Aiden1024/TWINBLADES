@@ -94,7 +94,7 @@ const Experience = () => {
                 />
 
                 <ExpCard
-                    dateRange="2019.09 - 2023.05"
+                    dateRange="2019.09 - 2023.06"
                     institution={t("experience.institutions.uoft")}
                     location={t("experience.locations.toronto")}
                     degree={t("experience.degrees.undergraduate")}

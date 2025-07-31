@@ -14,7 +14,7 @@ const ImageGallery = ({
 }: ImageGalleryProps) => {
     // 简单的空状态处理
     if (!images || images.length === 0) {
-        return <div className="py-8 text-center text-default-500">暂无图片</div>;
+        return <div className="py-8 text-center text-default-500">No Image</div>;
     }
 
     return (

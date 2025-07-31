@@ -57,7 +57,10 @@ const Portfolio = () => {
       tags: t('portfolio.projects.5.tags', { returnObjects: true }),
       desc: t('portfolio.projects.5.desc'),
       date: "2023.10 - 2024.2",
-      content: <SPWZContent />
+      content: <SPWZContent />,
+      infoJSON: {
+        Link: "https://speechwizard.vision-matrix.com"
+      }
     },
     {
       title: t('portfolio.projects.1.title'),
